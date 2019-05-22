@@ -38,12 +38,12 @@ namespace HotelMain.Frm
             root.Tag = 0;
             try
             {
-                List<SysCode> roomType = Bll_Room.GetAllRoomType();
-                foreach (SysCode var in roomType)
+                List<RoomType> roomType = Bll_Room.GetAllRoomType();
+                foreach (RoomType var in roomType)
                 {
                     TreeNode node = new TreeNode();
-                    node.Text = var.dmsm1;
-                    node.Tag = var.dmz;
+                    node.Text = var.lxmc;
+                    node.Tag = var.lxbh;
                     root.Nodes.Add(node);
                 }
                 this.tv_fjlx.Nodes.Add(root);

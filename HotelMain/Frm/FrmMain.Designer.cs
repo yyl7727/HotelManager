@@ -43,29 +43,29 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ts_time = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ts_loginuser = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tv_fjlx = new System.Windows.Forms.TreeView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lb_wxfj = new System.Windows.Forms.Label();
+            this.lb_yzfj = new System.Windows.Forms.Label();
+            this.lb_sum = new System.Windows.Forms.Label();
+            this.lb_kxfj = new System.Windows.Forms.Label();
+            this.lb_fjlx = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.group_roomlist = new System.Windows.Forms.GroupBox();
             this.lv_room = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tv_fjlx = new System.Windows.Forms.TreeView();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ts_loginuser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lb_fjlx = new System.Windows.Forms.Label();
-            this.lb_kxfj = new System.Windows.Forms.Label();
-            this.lb_yzfj = new System.Windows.Forms.Label();
-            this.lb_wxfj = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lb_sum = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -221,6 +221,24 @@
             this.ts_time.Size = new System.Drawing.Size(131, 17);
             this.ts_time.Text = "toolStripStatusLabel2";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
+            this.toolStripStatusLabel2.Text = "|";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(83, 17);
+            this.toolStripStatusLabel3.Text = "当前登录用户:";
+            // 
+            // ts_loginuser
+            // 
+            this.ts_loginuser.Name = "ts_loginuser";
+            this.ts_loginuser.Size = new System.Drawing.Size(131, 17);
+            this.ts_loginuser.Text = "toolStripStatusLabel4";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel5);
@@ -251,6 +269,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "房间类型";
             // 
+            // tv_fjlx
+            // 
+            this.tv_fjlx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv_fjlx.Location = new System.Drawing.Point(3, 17);
+            this.tv_fjlx.Name = "tv_fjlx";
+            this.tv_fjlx.Size = new System.Drawing.Size(194, 209);
+            this.tv_fjlx.TabIndex = 0;
+            this.tv_fjlx.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_room_AfterSelect);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.groupBox2);
@@ -279,6 +306,96 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "房间统计";
+            // 
+            // lb_wxfj
+            // 
+            this.lb_wxfj.AutoSize = true;
+            this.lb_wxfj.Location = new System.Drawing.Point(109, 127);
+            this.lb_wxfj.Name = "lb_wxfj";
+            this.lb_wxfj.Size = new System.Drawing.Size(41, 12);
+            this.lb_wxfj.TabIndex = 1;
+            this.lb_wxfj.Text = "label5";
+            // 
+            // lb_yzfj
+            // 
+            this.lb_yzfj.AutoSize = true;
+            this.lb_yzfj.Location = new System.Drawing.Point(109, 102);
+            this.lb_yzfj.Name = "lb_yzfj";
+            this.lb_yzfj.Size = new System.Drawing.Size(41, 12);
+            this.lb_yzfj.TabIndex = 1;
+            this.lb_yzfj.Text = "label5";
+            // 
+            // lb_sum
+            // 
+            this.lb_sum.AutoSize = true;
+            this.lb_sum.Location = new System.Drawing.Point(109, 51);
+            this.lb_sum.Name = "lb_sum";
+            this.lb_sum.Size = new System.Drawing.Size(41, 12);
+            this.lb_sum.TabIndex = 1;
+            this.lb_sum.Text = "lb_sum";
+            // 
+            // lb_kxfj
+            // 
+            this.lb_kxfj.AutoSize = true;
+            this.lb_kxfj.Location = new System.Drawing.Point(109, 77);
+            this.lb_kxfj.Name = "lb_kxfj";
+            this.lb_kxfj.Size = new System.Drawing.Size(41, 12);
+            this.lb_kxfj.TabIndex = 1;
+            this.lb_kxfj.Text = "label5";
+            // 
+            // lb_fjlx
+            // 
+            this.lb_fjlx.AutoSize = true;
+            this.lb_fjlx.Location = new System.Drawing.Point(109, 27);
+            this.lb_fjlx.Name = "lb_fjlx";
+            this.lb_fjlx.Size = new System.Drawing.Size(41, 12);
+            this.lb_fjlx.TabIndex = 1;
+            this.lb_fjlx.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(33, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "维修房间:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "房间总数:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "已住房间:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "空闲房间:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "房间类型:";
             // 
             // panel3
             // 
@@ -317,123 +434,6 @@
             this.imageList1.Images.SetKeyName(0, "weizhu.jpg");
             this.imageList1.Images.SetKeyName(1, "yizhu.jpg");
             this.imageList1.Images.SetKeyName(2, "huai.jpg");
-            // 
-            // tv_fjlx
-            // 
-            this.tv_fjlx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_fjlx.Location = new System.Drawing.Point(3, 17);
-            this.tv_fjlx.Name = "tv_fjlx";
-            this.tv_fjlx.Size = new System.Drawing.Size(194, 209);
-            this.tv_fjlx.TabIndex = 0;
-            this.tv_fjlx.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_room_AfterSelect);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
-            this.toolStripStatusLabel2.Text = "|";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(83, 17);
-            this.toolStripStatusLabel3.Text = "当前登录用户:";
-            // 
-            // ts_loginuser
-            // 
-            this.ts_loginuser.Name = "ts_loginuser";
-            this.ts_loginuser.Size = new System.Drawing.Size(131, 17);
-            this.ts_loginuser.Text = "toolStripStatusLabel4";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "房间类型:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "空闲房间:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "已住房间:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "维修房间:";
-            // 
-            // lb_fjlx
-            // 
-            this.lb_fjlx.AutoSize = true;
-            this.lb_fjlx.Location = new System.Drawing.Point(109, 27);
-            this.lb_fjlx.Name = "lb_fjlx";
-            this.lb_fjlx.Size = new System.Drawing.Size(41, 12);
-            this.lb_fjlx.TabIndex = 1;
-            this.lb_fjlx.Text = "label5";
-            // 
-            // lb_kxfj
-            // 
-            this.lb_kxfj.AutoSize = true;
-            this.lb_kxfj.Location = new System.Drawing.Point(109, 77);
-            this.lb_kxfj.Name = "lb_kxfj";
-            this.lb_kxfj.Size = new System.Drawing.Size(41, 12);
-            this.lb_kxfj.TabIndex = 1;
-            this.lb_kxfj.Text = "label5";
-            // 
-            // lb_yzfj
-            // 
-            this.lb_yzfj.AutoSize = true;
-            this.lb_yzfj.Location = new System.Drawing.Point(109, 102);
-            this.lb_yzfj.Name = "lb_yzfj";
-            this.lb_yzfj.Size = new System.Drawing.Size(41, 12);
-            this.lb_yzfj.TabIndex = 1;
-            this.lb_yzfj.Text = "label5";
-            // 
-            // lb_wxfj
-            // 
-            this.lb_wxfj.AutoSize = true;
-            this.lb_wxfj.Location = new System.Drawing.Point(109, 127);
-            this.lb_wxfj.Name = "lb_wxfj";
-            this.lb_wxfj.Size = new System.Drawing.Size(41, 12);
-            this.lb_wxfj.TabIndex = 1;
-            this.lb_wxfj.Text = "label5";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 51);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "房间总数:";
-            // 
-            // lb_sum
-            // 
-            this.lb_sum.AutoSize = true;
-            this.lb_sum.Location = new System.Drawing.Point(109, 51);
-            this.lb_sum.Name = "lb_sum";
-            this.lb_sum.Size = new System.Drawing.Size(41, 12);
-            this.lb_sum.TabIndex = 1;
-            this.lb_sum.Text = "lb_sum";
             // 
             // FrmMain
             // 

@@ -15,16 +15,16 @@ namespace HotelMain.Dal
         /// 获取所有房间类型信息
         /// </summary>
         /// <returns></returns>
-        public static List<SysCode> GetAllRoomType()
+        public static List<RoomType> GetAllRoomType()
         {
-            List<SysCode> roomType = new List<SysCode>();
+            List<RoomType> roomType = new List<RoomType>();
             string sql = "select * from syscode where dmlb='1001'";
             MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, null);
             while (reader.Read())
             {
-                SysCode r = new SysCode();
-                r.dmz = reader["dmz"].ToString();
-                r.dmsm1 = reader["dmsm1"].ToString();
+                RoomType r = new RoomType();
+                r.lxbh = reader["dmz"].ToString();
+                r.lxmc = reader["dmsm1"].ToString();
                 roomType.Add(r);
             }
             reader.Close();
@@ -99,6 +99,85 @@ namespace HotelMain.Dal
                 new MySqlParameter("@fjlx",fjlx)
             };
             return SqlHelper.ExecuteScalar("GetRoomStateCount", CommandType.StoredProcedure, para);
+        }
+
+        /// <summary>
+        /// 获取所有房间类型信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<RoomType> GetAllRoomTypeInfo(string fjlx)
+        {
+            List<RoomType> roomType = new List<RoomType>();
+            string sql = "";
+            if (string.IsNullOrEmpty(fjlx))
+            {
+                sql = "select * from syscode where dmlb='1001'";
+            }
+            else
+            {
+                sql = "select * from syscode where dmsm1 like @fjlx and dmlb='1001'";
+            }
+            MySqlParameter[] para = {
+                new MySqlParameter("@fjlx", "%"+fjlx+"%")
+            };
+            MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
+            while (reader.Read())
+            {
+                RoomType type = new RoomType();
+                type.lxbh = reader["dmz"].ToString();
+                type.lxmc = reader["dmsm1"].ToString();
+                type.rzdj = reader["dmsm2"].ToString();
+                roomType.Add(type);
+            }
+            reader.Close();
+            return roomType;
+        }
+
+        /// <summary>
+        /// 删除房间类型信息
+        /// </summary>
+        /// <param name="lxbh">类型编号</param>
+        /// <returns></returns>
+        public static int DeleteRoomType(string lxbh)
+        {
+            string sql = "delete from syscode where dmz=@lxbh and dmlb='1001'";
+            MySqlParameter[] para = {
+                new MySqlParameter("@lxbh", lxbh)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
+
+        /// <summary>
+        /// 添加房间类型
+        /// </summary>
+        /// <param name="type">房间类型对象</param>
+        /// <returns>受影响行数</returns>
+        public static int AddRoomType(RoomType type)
+        {
+            MySqlParameter[] para = {
+                new MySqlParameter("@lxbh",type.lxbh),
+                new MySqlParameter("@lxmc",type.lxmc),
+                new MySqlParameter("@rzdj",type.rzdj)
+            };
+            return SqlHelper.ExecuteNonQuery("AddRoomType", CommandType.StoredProcedure, para);
+        }
+
+        /// <summary>
+        /// 修改房间类型信息
+        /// </summary>
+        /// <param name="typeId">房间类型ID</param>
+        /// <param name="typeName">房间类型名称</param>
+        /// <param name="typePrice">房间类型价格</param>
+        /// <returns></returns>
+        public static int UpdateRoomType(RoomType roomType)
+        {
+            string sql = "update syscode set dmsm1=@fjlx,dmsm2=@rzdj where dmz=@lxbh and dmlb='1001'";
+            MySqlParameter[] para = {
+                new MySqlParameter("@fjlx",roomType.lxmc),
+                new MySqlParameter("@rzdj",roomType.rzdj),
+                new MySqlParameter("@lxbh",roomType.lxbh)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
         }
     }
 }

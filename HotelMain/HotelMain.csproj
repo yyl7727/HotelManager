@@ -79,12 +79,14 @@
     </Compile>
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\RoomType.cs" />
     <Compile Include="Model\SysCode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Encryption.cs" />
     <Compile Include="Tool\LoginInfo.cs" />
     <Compile Include="Tool\SqlHelper.cs" />
+    <Compile Include="Tool\State.cs" />
     <EmbeddedResource Include="Frmlogin.resx">
       <DependentUpon>Frmlogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +130,7 @@
     <Content Include="Img\lxgl.png" />
     <Content Include="Img\rzdj.png" />
     <Content Include="Img\sd.png" />
+    <Content Include="Img\search.png" />
     <Content Include="Img\srtj.png" />
     <Content Include="Img\tc.png" />
     <Content Include="Img\weizhu.jpg" />
