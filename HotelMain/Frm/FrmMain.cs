@@ -167,5 +167,17 @@ namespace HotelMain.Frm
             //刷新
             FrmMain_Load(null, null);
         }
+
+        /// <summary>
+        /// 房间管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            FrmRoomInfo frmroominfo = new FrmRoomInfo();
+            frmroominfo.ShowDialog();
+            FrmMain_Load(null, null);
+        }
     }
 }

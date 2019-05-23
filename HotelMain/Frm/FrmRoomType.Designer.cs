@@ -36,21 +36,21 @@
             this.tsbtn_cancel = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_exit = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_lxmc = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_lxmc = new System.Windows.Forms.TextBox();
             this.gv_fjlx = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_ok = new System.Windows.Forms.Button();
-            this.txt_fjlx = new System.Windows.Forms.TextBox();
-            this.txt_rzdj = new System.Windows.Forms.TextBox();
             this.lxbh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lxmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rzdj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_rzdj = new System.Windows.Forms.TextBox();
             this.txt_lxbh = new System.Windows.Forms.TextBox();
+            this.txt_fjlx = new System.Windows.Forms.TextBox();
+            this.btn_ok = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_fjlx)).BeginInit();
@@ -129,22 +129,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // txt_lxmc
-            // 
-            this.txt_lxmc.Location = new System.Drawing.Point(108, 32);
-            this.txt_lxmc.Name = "txt_lxmc";
-            this.txt_lxmc.Size = new System.Drawing.Size(173, 21);
-            this.txt_lxmc.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "类型名称:";
-            // 
             // btn_search
             // 
             this.btn_search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -156,6 +140,22 @@
             this.btn_search.Text = "查询";
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "类型名称:";
+            // 
+            // txt_lxmc
+            // 
+            this.txt_lxmc.Location = new System.Drawing.Point(108, 32);
+            this.txt_lxmc.Name = "txt_lxmc";
+            this.txt_lxmc.Size = new System.Drawing.Size(173, 21);
+            this.txt_lxmc.TabIndex = 0;
             // 
             // gv_fjlx
             // 
@@ -172,64 +172,6 @@
             this.gv_fjlx.RowTemplate.Height = 23;
             this.gv_fjlx.Size = new System.Drawing.Size(479, 174);
             this.gv_fjlx.TabIndex = 2;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txt_rzdj);
-            this.groupBox2.Controls.Add(this.txt_lxbh);
-            this.groupBox2.Controls.Add(this.txt_fjlx);
-            this.groupBox2.Controls.Add(this.btn_ok);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(10, 328);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(476, 103);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "房间类型信息";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "房间类型:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "入住单价:";
-            // 
-            // btn_ok
-            // 
-            this.btn_ok.Location = new System.Drawing.Point(346, 45);
-            this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(75, 23);
-            this.btn_ok.TabIndex = 2;
-            this.btn_ok.Text = "确定";
-            this.btn_ok.UseVisualStyleBackColor = true;
-            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
-            // 
-            // txt_fjlx
-            // 
-            this.txt_fjlx.Location = new System.Drawing.Point(105, 47);
-            this.txt_fjlx.Name = "txt_fjlx";
-            this.txt_fjlx.Size = new System.Drawing.Size(173, 21);
-            this.txt_fjlx.TabIndex = 3;
-            // 
-            // txt_rzdj
-            // 
-            this.txt_rzdj.Location = new System.Drawing.Point(105, 75);
-            this.txt_rzdj.Name = "txt_rzdj";
-            this.txt_rzdj.Size = new System.Drawing.Size(173, 21);
-            this.txt_rzdj.TabIndex = 4;
             // 
             // lxbh
             // 
@@ -255,6 +197,53 @@
             this.rzdj.ReadOnly = true;
             this.rzdj.Width = 155;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txt_rzdj);
+            this.groupBox2.Controls.Add(this.txt_lxbh);
+            this.groupBox2.Controls.Add(this.txt_fjlx);
+            this.groupBox2.Controls.Add(this.btn_ok);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(10, 328);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(476, 103);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "房间类型信息";
+            // 
+            // txt_rzdj
+            // 
+            this.txt_rzdj.Location = new System.Drawing.Point(105, 75);
+            this.txt_rzdj.Name = "txt_rzdj";
+            this.txt_rzdj.Size = new System.Drawing.Size(173, 21);
+            this.txt_rzdj.TabIndex = 4;
+            // 
+            // txt_lxbh
+            // 
+            this.txt_lxbh.Location = new System.Drawing.Point(105, 20);
+            this.txt_lxbh.Name = "txt_lxbh";
+            this.txt_lxbh.Size = new System.Drawing.Size(173, 21);
+            this.txt_lxbh.TabIndex = 3;
+            // 
+            // txt_fjlx
+            // 
+            this.txt_fjlx.Location = new System.Drawing.Point(105, 47);
+            this.txt_fjlx.Name = "txt_fjlx";
+            this.txt_fjlx.Size = new System.Drawing.Size(173, 21);
+            this.txt_fjlx.TabIndex = 3;
+            // 
+            // btn_ok
+            // 
+            this.btn_ok.Location = new System.Drawing.Point(346, 45);
+            this.btn_ok.Name = "btn_ok";
+            this.btn_ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_ok.TabIndex = 2;
+            this.btn_ok.Text = "确定";
+            this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -264,12 +253,23 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "类型编号:";
             // 
-            // txt_lxbh
+            // label3
             // 
-            this.txt_lxbh.Location = new System.Drawing.Point(105, 20);
-            this.txt_lxbh.Name = "txt_lxbh";
-            this.txt_lxbh.Size = new System.Drawing.Size(173, 21);
-            this.txt_lxbh.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "入住单价:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "房间类型:";
             // 
             // FrmRoomType
             // 
@@ -280,6 +280,7 @@
             this.Controls.Add(this.gv_fjlx);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmRoomType";
             this.Text = "房间类型管理";

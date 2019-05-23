@@ -118,6 +118,7 @@
             this.toolStripButton9.Size = new System.Drawing.Size(60, 99);
             this.toolStripButton9.Text = "房间管理";
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // toolStripButton8
             // 
@@ -444,6 +445,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.Text = "酒店管理系统 V1.0";
             this.Load += new System.EventHandler(this.FrmMain_Load);

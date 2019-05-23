@@ -28,6 +28,16 @@ namespace HotelMain.Bll
         }
 
         /// <summary>
+        /// 获取所有状态信息
+        /// </summary>
+        /// <param name="ztid"></param>
+        /// <returns></returns>
+        public static List<RoomState> GetStateInfo(string ztid)
+        {
+            return Dal_Room.GetStateInfo(ztid);
+        }
+
+        /// <summary>
         /// 根据房间类型查询房间状态
         /// </summary>
         /// <param name="typeId"></param>
@@ -99,6 +109,45 @@ namespace HotelMain.Bll
         {
             bool flag = false;
             return flag = Dal_Room.UpdateRoomType(roomType) == 1 ? true : false;
+        }
+
+        /// <summary>
+        /// 获取房间信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<Room> GetRoomInfo(string roomId)
+        {
+            return Dal_Room.GetRoomInfo(roomId);
+        }
+
+        /// <summary>
+        /// 删除房间信息
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public static bool DelRoomInfo(string roomId)
+        {
+            return Dal_Room.DelRoomInfo(roomId) == 1 ? true : false;
+        }
+
+        /// <summary>
+        /// 添加房间信息
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public static bool AddRoomInfo(Room room)
+        {
+            return Dal_Room.AddRoomInfo(room) == 1 ? true : false;
+        }
+
+        /// <summary>
+        /// 更新房间信息
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public static bool UpdateRoomInfo(Room room)
+        {
+            return Dal_Room.UpdateRoomInfo(room) == 1 ? true : false;
         }
     }
 }

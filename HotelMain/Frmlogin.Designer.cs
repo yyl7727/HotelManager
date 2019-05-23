@@ -77,6 +77,7 @@
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_username);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Frmlogin";
             this.Text = "登录";

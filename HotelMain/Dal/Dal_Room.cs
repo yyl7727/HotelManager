@@ -179,5 +179,136 @@ namespace HotelMain.Dal
             };
             return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
         }
+
+        /// <summary>
+        /// 获取房间信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<Room> GetRoomInfo(string roomId)
+        {
+            List<Room> room = new List<Room>();
+            if (string.IsNullOrEmpty(roomId))
+            {
+                MySqlDataReader reader = SqlHelper.ExecuteReader("GetRoomInfo", CommandType.StoredProcedure, null);
+                while (reader.Read())
+                {
+                    Room r = new Room();
+                    r.fjbh = reader["fjbh"].ToString();
+                    r.fjzt = reader["fjzt"].ToString();
+                    r.fjlx = reader["fjlx"].ToString();
+                    r.bz = reader["bz"].ToString();
+                    room.Add(r);
+                }
+                reader.Close();
+            }
+            else
+            {
+                MySqlParameter[] para = {
+                    new MySqlParameter("@roomid",roomId)
+                };
+                MySqlDataReader reader = SqlHelper.ExecuteReader("GetRoomInfoWithFjbh", CommandType.StoredProcedure, para);
+                while (reader.Read())
+                {
+                    Room r = new Room();
+                    r.fjbh = reader["fjbh"].ToString();
+                    r.fjzt = reader["fjzt"].ToString();
+                    r.fjlx = reader["fjlx"].ToString();
+                    r.bz = reader["bz"].ToString();
+                    room.Add(r);
+                }
+                reader.Close();
+            }
+            return room;
+        }
+
+        /// <summary>
+        /// 获取房间状态信息
+        /// </summary>
+        /// <param name="ztid"></param>
+        /// <returns></returns>
+        public static List<RoomState> GetStateInfo(string ztid)
+        {
+            List<RoomState> lst_roomstate = new List<RoomState>();
+            string sql;
+            if (string.IsNullOrEmpty(ztid))
+            {
+                sql = "select * from syscode where dmlb='1002'";
+                MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, null);
+                while (reader.Read())
+                {
+                    RoomState state = new RoomState();
+                    state.ztbh = reader["dmz"].ToString();
+                    state.ztmc = reader["dmsm1"].ToString();
+                    lst_roomstate.Add(state);
+                }
+                reader.Close();
+            }
+            else
+            {
+                sql = "select * from syscode where dmz=@ztid and dmlb='1002'";
+                MySqlParameter[] para = {
+                    new MySqlParameter("@ztid",ztid)
+                };
+                MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
+                while (reader.Read())
+                {
+                    RoomState state = new RoomState();
+                    state.ztbh = reader["dmz"].ToString();
+                    state.ztmc = reader["dmsm1"].ToString();
+                    lst_roomstate.Add(state);
+                }
+                reader.Close();
+            }
+            return lst_roomstate;
+        }
+
+        /// <summary>
+        /// 删除房间信息
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public static int DelRoomInfo(string roomId)
+        {
+            string sql = "delete from Room where fjbh=@roomId";
+            MySqlParameter[] para = {
+                new MySqlParameter("@roomId", roomId)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
+
+        /// <summary>
+        /// 添加房间信息
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public static int AddRoomInfo(Room room)
+        {
+            string sql = "insert into Room(fjbh,fjlx,fjzt,bz) values(@roomId,@roomTypeId,@roomStateId,@description)";
+            MySqlParameter[] para = {
+                                      new MySqlParameter("@roomId",room.fjbh),
+                                      new MySqlParameter("@roomTypeId",room.fjlx),
+                                      new MySqlParameter("@roomStateId",room.fjzt),
+                                      new MySqlParameter("@description",room.bz)
+                                  };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
+
+        /// <summary>
+        /// 更新房间信息
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public static int UpdateRoomInfo(Room room)
+        {
+            string sql = "update Room set bz=@description,fjlx=@roomTypeId,fjzt=@roomStateId where fjbh=@roomId";
+            MySqlParameter[] para = {
+                new MySqlParameter("@description",room.bz),
+                new MySqlParameter("@roomTypeId",room.fjlx),
+                new MySqlParameter("@roomStateId",room.fjzt),
+                new MySqlParameter("@roomId",room.fjbh)
+
+                                  };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
     }
 }
