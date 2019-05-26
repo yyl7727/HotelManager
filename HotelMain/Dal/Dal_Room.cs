@@ -310,5 +310,38 @@ namespace HotelMain.Dal
                                   };
             return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
         }
+
+        /// <summary>
+        /// 查询未入住房间
+        /// </summary>
+        /// <returns></returns>
+        public static List<FreeRoomNum> GetFreeRoom()
+        {
+            MySqlDataReader reader = SqlHelper.ExecuteReader("GetFreeRoom", CommandType.Text, null);
+            List<FreeRoomNum> freeroom = new List<FreeRoomNum>();
+            while (reader.Read())
+            {
+                FreeRoomNum r = new FreeRoomNum();
+                r.lxbh = reader["lxbh"].ToString();
+                r.fjlx = reader["fjlx"].ToString();
+                r.sl = reader["sl"].ToString();
+                freeroom.Add(r);
+            }
+            reader.Close();
+            return freeroom;
+        }
+
+        /// <summary>
+        /// 根据房间类型获取空闲房间编号
+        /// </summary>
+        /// <returns></returns>
+        public static object GetFreeRoomIdWithFjlx(string fjlx)
+        {
+            string sql = "select fjbh from room where fjlx=@lx and fjzt='2' limit 1";
+            MySqlParameter[] para = {
+                new MySqlParameter("@lx",fjlx)
+            };
+            return SqlHelper.ExecuteScalar(sql, CommandType.Text, para);
+        }
     }
 }

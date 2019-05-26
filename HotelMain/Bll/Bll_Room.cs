@@ -149,5 +149,23 @@ namespace HotelMain.Bll
         {
             return Dal_Room.UpdateRoomInfo(room) == 1 ? true : false;
         }
+
+        /// <summary>
+        /// 查询未入住房间
+        /// </summary>
+        /// <returns></returns>
+        public static List<FreeRoomNum> GetFreeRoom()
+        {
+            return Dal_Room.GetFreeRoom();
+        }
+
+        /// <summary>
+        /// 根据房间类型获取空闲房间编号
+        /// </summary>
+        /// <returns></returns>
+        public static object GetFreeRoomIdWithFjlx(string fjlx)
+        {
+            return Dal_Room.GetFreeRoomIdWithFjlx(fjlx);
+        }
     }
 }

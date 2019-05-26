@@ -152,6 +152,7 @@
             this.toolStripButton6.Size = new System.Drawing.Size(60, 99);
             this.toolStripButton6.Text = "入住登记";
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripButton5
             // 

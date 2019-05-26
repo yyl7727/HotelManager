@@ -179,5 +179,17 @@ namespace HotelMain.Frm
             frmroominfo.ShowDialog();
             FrmMain_Load(null, null);
         }
+
+        /// <summary>
+        /// 入住登记
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            FrmCheckin frmcheckin = new FrmCheckin();
+            frmcheckin.ShowDialog();
+            FrmMain_Load(null, null);
+        }
     }
 }
