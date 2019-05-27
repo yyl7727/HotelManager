@@ -65,6 +65,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.group_roomlist = new System.Windows.Forms.GroupBox();
             this.lv_room = new System.Windows.Forms.ListView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.退房ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -76,6 +79,7 @@
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.group_roomlist.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -421,6 +425,7 @@
             // 
             // lv_room
             // 
+            this.lv_room.ContextMenuStrip = this.contextMenuStrip1;
             this.lv_room.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv_room.LargeImageList = this.imageList1;
             this.lv_room.Location = new System.Drawing.Point(3, 17);
@@ -428,6 +433,27 @@
             this.lv_room.Size = new System.Drawing.Size(728, 373);
             this.lv_room.TabIndex = 0;
             this.lv_room.UseCompatibleStateImageBehavior = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.退房ToolStripMenuItem,
+            this.修改状态ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            // 
+            // 退房ToolStripMenuItem
+            // 
+            this.退房ToolStripMenuItem.Name = "退房ToolStripMenuItem";
+            this.退房ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退房ToolStripMenuItem.Text = "退房";
+            this.退房ToolStripMenuItem.Click += new System.EventHandler(this.退房ToolStripMenuItem_Click);
+            // 
+            // 修改状态ToolStripMenuItem
+            // 
+            this.修改状态ToolStripMenuItem.Name = "修改状态ToolStripMenuItem";
+            this.修改状态ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改状态ToolStripMenuItem.Text = "修改状态";
             // 
             // imageList1
             // 
@@ -464,6 +490,7 @@
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.group_roomlist.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,5 +534,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_sum;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 退房ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改状态ToolStripMenuItem;
     }
 }

@@ -19,7 +19,7 @@ namespace HotelMain.Frm
         //总金额
         private decimal summoney = 0;
         //房间号
-        private int fjbh = 0;
+        public static string fjbh;
 
         public FrmMain()
         {
@@ -190,6 +190,26 @@ namespace HotelMain.Frm
             FrmCheckin frmcheckin = new FrmCheckin();
             frmcheckin.ShowDialog();
             FrmMain_Load(null, null);
+        }
+
+        /// <summary>
+        /// 退房
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 退房ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lv_room.SelectedItems.Count > 0 && lv_room.SelectedItems[0].ImageIndex == 1)
+            {
+                Pass.fjbh = lv_room.SelectedItems[0].Text;
+                FrmCheckout frmcheckout = new FrmCheckout();
+                frmcheckout.ShowDialog();
+                FrmMain_Load(null, null);
+            }
+            else
+            {
+                MessageBox.Show("不满足退房条件！");
+            }
         }
     }
 }
