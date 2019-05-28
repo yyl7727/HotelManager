@@ -69,6 +69,7 @@
             this.退房ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -463,6 +464,12 @@
             this.imageList1.Images.SetKeyName(1, "yizhu.jpg");
             this.imageList1.Images.SetKeyName(2, "huai.jpg");
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -538,5 +545,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 退房ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改状态ToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

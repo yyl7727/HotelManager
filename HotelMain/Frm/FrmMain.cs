@@ -27,6 +27,7 @@ namespace HotelMain.Frm
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             //设置工具栏信息
             ts_time.Text = DateTime.Now.ToString();
             ts_loginuser.Text = LoginInfo.ygxh;
@@ -212,7 +213,13 @@ namespace HotelMain.Frm
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            timer1.Stop();
             System.Environment.Exit(0);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ts_time.Text = DateTime.Now.ToString();
         }
     }
 }
