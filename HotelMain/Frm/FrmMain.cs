@@ -16,8 +16,6 @@ namespace HotelMain.Frm
 {
     public partial class FrmMain : Skin_Mac
     {
-        //总金额
-        private decimal summoney = 0;
         //房间号
         public static string fjbh;
 

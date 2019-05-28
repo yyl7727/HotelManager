@@ -1,6 +1,7 @@
 ﻿using CCWin;
 using HotelMain.Bll;
 using HotelMain.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,10 +39,21 @@ namespace HotelMain.Frm
         /// </summary>
         private void GetGuestInfoWifhFjbh()
         {
-            guestrecord = Bll_Guset.GetRecordInfo(fjbh);
-            lb_khxm.Text = guestrecord.khxm;
-            lb_sfzmhm.Text = guestrecord.sfzmhm;
-            lb_rzrq.Text = guestrecord.rzrq.ToString();
+            try
+            {
+                guestrecord = Bll_Guset.GetRecordInfo(fjbh);
+                lb_khxm.Text = guestrecord.khxm;
+                lb_sfzmhm.Text = guestrecord.sfzmhm;
+                lb_rzrq.Text = guestrecord.rzrq.ToString();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("数据库异常：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("其它异常：" + ex.Message);
+            }
         }
 
         /// <summary>
@@ -49,14 +61,23 @@ namespace HotelMain.Frm
         /// </summary>
         private void CheckOut()
         {
-            if (Bll_Guset.RoomCheckOut(lb_fjbh.Text) > 0)
+            int flag=0;
+            try
+            {
+                flag = Bll_Guset.RoomCheckOut(lb_fjbh.Text);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("数据库异常：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("其它异常：" + ex.Message);
+            }
+            if (flag > 0)
             {
                 MessageBox.Show("退房成功！");
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("失败！");
             }
         }
     }

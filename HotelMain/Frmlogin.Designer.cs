@@ -49,6 +49,7 @@
             // 
             this.txt_password.Location = new System.Drawing.Point(122, 132);
             this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(128, 21);
             this.txt_password.TabIndex = 1;
             this.txt_password.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
