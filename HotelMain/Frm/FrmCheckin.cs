@@ -76,6 +76,7 @@ namespace HotelMain.Frm
             guest.rzrq = this.dtp_rzsj.Value;
             guest.rzts = this.txt_rzts.Text.Trim();
             guest.tfrq = guest.rzrq.AddDays(Convert.ToInt32(guest.rzts));
+            guest.rzzt = "1";
             try
             {
                 if (Bll_Guset.AddGuest(guest) > 0)

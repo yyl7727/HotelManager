@@ -120,6 +120,7 @@
             this.btn_checkout.TabIndex = 5;
             this.btn_checkout.Text = "确认退房";
             this.btn_checkout.UseVisualStyleBackColor = true;
+            this.btn_checkout.Click += new System.EventHandler(this.btn_checkout_Click);
             // 
             // FrmCheckout
             // 

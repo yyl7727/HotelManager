@@ -440,19 +440,19 @@
             this.退房ToolStripMenuItem,
             this.修改状态ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
             // 
             // 退房ToolStripMenuItem
             // 
             this.退房ToolStripMenuItem.Name = "退房ToolStripMenuItem";
-            this.退房ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退房ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.退房ToolStripMenuItem.Text = "退房";
             this.退房ToolStripMenuItem.Click += new System.EventHandler(this.退房ToolStripMenuItem_Click);
             // 
             // 修改状态ToolStripMenuItem
             // 
             this.修改状态ToolStripMenuItem.Name = "修改状态ToolStripMenuItem";
-            this.修改状态ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改状态ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.修改状态ToolStripMenuItem.Text = "修改状态";
             // 
             // imageList1
@@ -475,6 +475,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.Text = "酒店管理系统 V1.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

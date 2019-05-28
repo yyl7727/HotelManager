@@ -211,5 +211,10 @@ namespace HotelMain.Frm
                 MessageBox.Show("不满足退房条件！");
             }
         }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
     }
 }

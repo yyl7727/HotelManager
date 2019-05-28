@@ -18,5 +18,25 @@ namespace HotelMain.Bll
         {
             return Dal_Guest.AddGuest(guest);
         }
+
+        /// <summary>
+        /// 根据房间编号获取入住信息
+        /// </summary>
+        /// <param name="fjbh"></param>
+        /// <returns></returns>
+        public static GuestRecord GetRecordInfo(string fjbh)
+        {
+            return Dal_Guest.GetRecordInfo(fjbh);
+        }
+
+        /// <summary>
+        /// 退房
+        /// </summary>
+        /// <param name="roomid"></param>
+        /// <returns></returns>
+        public static int RoomCheckOut(string roomid)
+        {
+            return Dal_Guest.RoomCheckOut(roomid);
+        }
     }
 }
