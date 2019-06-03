@@ -38,19 +38,22 @@ namespace HotelMain.Frm
             try
             {
                 List<RoomType> roomType = Bll_Room.GetAllRoomType();
-                foreach (RoomType var in roomType)
+                if (roomType.Count > 0)
                 {
-                    TreeNode node = new TreeNode();
-                    node.Text = var.lxmc;
-                    node.Tag = var.lxbh;
-                    root.Nodes.Add(node);
+                    foreach (RoomType var in roomType)
+                    {
+                        TreeNode node = new TreeNode();
+                        node.Text = var.lxmc;
+                        node.Tag = var.lxbh;
+                        root.Nodes.Add(node);
+                    }
+                    this.tv_fjlx.Nodes.Add(root);
+                    this.tv_fjlx.ExpandAll();
+                    //显示所有房间状态
+                    this.lv_room.Items.Clear();
+                    List<Room> room = Bll_Room.GetRoomState();
+                    Method(room);
                 }
-                this.tv_fjlx.Nodes.Add(root);
-                this.tv_fjlx.ExpandAll();
-                //显示所有房间状态
-                this.lv_room.Items.Clear();
-                List<Room> room = Bll_Room.GetRoomState();
-                Method(room);
             }
             catch (MySqlException ex)
             {
@@ -220,6 +223,18 @@ namespace HotelMain.Frm
         private void timer1_Tick(object sender, EventArgs e)
         {
             ts_time.Text = DateTime.Now.ToString();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            System.Environment.Exit(0);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            FrmLock frmlock = new FrmLock();
+            frmlock.ShowDialog();
         }
     }
 }

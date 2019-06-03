@@ -79,6 +79,12 @@
     <Compile Include="Frm\FrmCheckout.Designer.cs">
       <DependentUpon>FrmCheckout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmLock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmLock.Designer.cs">
+      <DependentUpon>FrmLock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmCheckout.resx">
       <DependentUpon>FrmCheckout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmLock.resx">
+      <DependentUpon>FrmLock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

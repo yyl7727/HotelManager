@@ -8,5 +8,6 @@ namespace HotelMain.Model
     public static class Pass
     {
         public static string fjbh { get; set; }
+        public static string password { get; set; }
     }
 }

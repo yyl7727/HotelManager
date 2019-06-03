@@ -52,6 +52,7 @@ namespace HotelMain
             {
                 admin.ygxh = txt_username.Text;
                 admin.ygmm = txt_password.Text;
+                Pass.password = txt_password.Text;
                 object flag = Bll_Admin.CheckIdPwd(admin);
                 if (flag.ToString() == "1")
                 {
