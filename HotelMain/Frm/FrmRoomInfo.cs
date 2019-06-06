@@ -102,12 +102,19 @@ namespace HotelMain.Frm
         private void tsbtn_add_Click(object sender, EventArgs e)
         {
             state = State.add;
+            #region 解锁下方输入区域
             this.txt_fjbh.Enabled = true;
             this.txt_fjms.Enabled = true;
             this.cb_fjlx.Enabled = true;
             this.cb_fjzt.Enabled = true;
             this.tsbtn_cancel.Enabled = true;
             this.btn_ok.Enabled = true;
+            this.AcceptButton = btn_ok;
+            #endregion
+
+            //焦点设置在房间编号处优化体验
+            txt_fjbh.Focus();
+            this.cb_fjzt.SelectedIndex = 2;
         }
 
         /// <summary>
@@ -130,6 +137,11 @@ namespace HotelMain.Frm
             this.btn_ok.Enabled = true;
         }
 
+        /// <summary>
+        /// 删除房间信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbtn_del_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("是否删除?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
@@ -156,6 +168,11 @@ namespace HotelMain.Frm
             }
         }
 
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbtn_cancel_Click(object sender, EventArgs e)
         {
             state = State.add;
@@ -169,11 +186,21 @@ namespace HotelMain.Frm
             this.btn_ok.Enabled = false;
         }
 
+        /// <summary>
+        /// 退出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbtn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_search_Click(object sender, EventArgs e)
         {
             string roomId = "";
@@ -184,15 +211,31 @@ namespace HotelMain.Frm
             InitRoomInfo(roomId);
         }
 
+        /// <summary>
+        /// 确认修改或添加
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            //非空验证
-            if (string.IsNullOrEmpty(txt_fjbh.Text.Trim()) || string.IsNullOrEmpty(txt_fjms.Text.Trim()) || this.cb_fjlx.SelectedIndex == 0 || this.cb_fjzt.SelectedIndex == 0)
+            if (string.IsNullOrEmpty(txt_fjbh.Text.Trim()))
             {
-                MessageBox.Show("请完善信息", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                toolTip1.Show("请输入房间编号", this.txt_fjbh, 1000);
+                txt_fjbh.Focus();
                 return;
             }
-
+            else if (string.IsNullOrEmpty(txt_fjms.Text.Trim()))
+            {
+                toolTip1.Show("请输入房间编号", this.txt_fjms, 1000);
+                txt_fjms.Focus();
+                return;
+            }
+            else if (cb_fjlx.SelectedIndex==0)
+            {
+                toolTip1.Show("请选择房间类型", this.cb_fjlx, 1000);
+                cb_fjlx.Focus();
+                return;
+            }
 
             #region 新增
             if (state == State.add)

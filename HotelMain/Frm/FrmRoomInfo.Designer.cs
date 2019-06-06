@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRoomInfo));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtn_add = new System.Windows.Forms.ToolStripButton();
@@ -46,14 +47,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gv_fjxx = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_search = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_fjbh_search = new System.Windows.Forms.TextBox();
             this.fjbh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fjzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fjlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_fjbh_search = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_fjxx)).BeginInit();
@@ -234,6 +236,37 @@
             this.gv_fjxx.Size = new System.Drawing.Size(479, 174);
             this.gv_fjxx.TabIndex = 5;
             // 
+            // fjbh
+            // 
+            this.fjbh.DataPropertyName = "fjbh";
+            this.fjbh.HeaderText = "房间编号";
+            this.fjbh.Name = "fjbh";
+            this.fjbh.ReadOnly = true;
+            this.fjbh.Width = 80;
+            // 
+            // fjzt
+            // 
+            this.fjzt.DataPropertyName = "fjzt";
+            this.fjzt.HeaderText = "房间状态";
+            this.fjzt.Name = "fjzt";
+            this.fjzt.ReadOnly = true;
+            this.fjzt.Width = 80;
+            // 
+            // fjlx
+            // 
+            this.fjlx.DataPropertyName = "fjlx";
+            this.fjlx.HeaderText = "房间类型";
+            this.fjlx.Name = "fjlx";
+            this.fjlx.ReadOnly = true;
+            // 
+            // bz
+            // 
+            this.bz.DataPropertyName = "bz";
+            this.bz.HeaderText = "房间描述";
+            this.bz.Name = "bz";
+            this.bz.ReadOnly = true;
+            this.bz.Width = 175;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_search);
@@ -273,37 +306,6 @@
             this.txt_fjbh_search.Name = "txt_fjbh_search";
             this.txt_fjbh_search.Size = new System.Drawing.Size(173, 21);
             this.txt_fjbh_search.TabIndex = 0;
-            // 
-            // fjbh
-            // 
-            this.fjbh.DataPropertyName = "fjbh";
-            this.fjbh.HeaderText = "房间编号";
-            this.fjbh.Name = "fjbh";
-            this.fjbh.ReadOnly = true;
-            this.fjbh.Width = 80;
-            // 
-            // fjzt
-            // 
-            this.fjzt.DataPropertyName = "fjzt";
-            this.fjzt.HeaderText = "房间状态";
-            this.fjzt.Name = "fjzt";
-            this.fjzt.ReadOnly = true;
-            this.fjzt.Width = 80;
-            // 
-            // fjlx
-            // 
-            this.fjlx.DataPropertyName = "fjlx";
-            this.fjlx.HeaderText = "房间类型";
-            this.fjlx.Name = "fjlx";
-            this.fjlx.ReadOnly = true;
-            // 
-            // bz
-            // 
-            this.bz.DataPropertyName = "bz";
-            this.bz.HeaderText = "房间描述";
-            this.bz.Name = "bz";
-            this.bz.ReadOnly = true;
-            this.bz.Width = 175;
             // 
             // FrmRoomInfo
             // 
@@ -358,5 +360,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fjzt;
         private System.Windows.Forms.DataGridViewTextBoxColumn fjlx;
         private System.Windows.Forms.DataGridViewTextBoxColumn bz;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
