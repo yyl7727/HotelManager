@@ -343,5 +343,19 @@ namespace HotelMain.Dal
             };
             return SqlHelper.ExecuteScalar(sql, CommandType.Text, para);
         }
+
+        /// <summary>
+        /// 查询房间号是否存在
+        /// </summary>
+        /// <param name="fjbh"></param>
+        /// <returns></returns>
+        public static object CheckRoomId(string fjbh)
+        {
+            string sql = "select count(*) from room where fjbh=@fjh";
+            MySqlParameter[] para = {
+                new MySqlParameter("@fjh",fjbh)
+            };
+            return SqlHelper.ExecuteScalar(sql, CommandType.Text, para);
+        }
     }
 }

@@ -197,28 +197,38 @@ namespace HotelMain.Frm
             #region 新增
             if (state == State.add)
             {
-                Room room = new Room();
-                room.fjbh = txt_fjbh.Text.Trim();
-                room.bz = txt_fjms.Text.Trim();
-                room.fjlx = this.cb_fjlx.SelectedValue.ToString();
-                room.fjzt = this.cb_fjzt.SelectedValue.ToString();
-                try
+                int single = Convert.ToInt32(Bll_Room.CheckRoomId(txt_fjbh.Text.Trim()));
+                if (single > 0)
                 {
-                    bool flag = Bll_Room.AddRoomInfo(room);
-                    if (flag)
+                    MessageBox.Show("房间号已存在！");
+                    txt_fjbh.Text = "";
+                    txt_fjbh.Focus();
+                }
+                else
+                {
+                    Room room = new Room();
+                    room.fjbh = txt_fjbh.Text.Trim();
+                    room.bz = txt_fjms.Text.Trim();
+                    room.fjlx = this.cb_fjlx.SelectedValue.ToString();
+                    room.fjzt = this.cb_fjzt.SelectedValue.ToString();
+                    try
                     {
-                        MessageBox.Show("添加成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //刷新
-                        InitRoomInfo("");
+                        bool flag = Bll_Room.AddRoomInfo(room);
+                        if (flag)
+                        {
+                            MessageBox.Show("添加成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //刷新
+                            InitRoomInfo("");
+                        }
                     }
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show("数据库异常：" + ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("其它异常：" + ex.Message);
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("数据库异常：" + ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("其它异常：" + ex.Message);
+                    }
                 }
             }
             #endregion

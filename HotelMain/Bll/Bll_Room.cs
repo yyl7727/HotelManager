@@ -167,5 +167,15 @@ namespace HotelMain.Bll
         {
             return Dal_Room.GetFreeRoomIdWithFjlx(fjlx);
         }
+
+        /// <summary>
+        /// 查询房间号是否存在
+        /// </summary>
+        /// <param name="fjbh"></param>
+        /// <returns></returns>
+        public static object CheckRoomId(string fjbh)
+        {
+            return Dal_Room.CheckRoomId(fjbh);
+        }
     }
 }
