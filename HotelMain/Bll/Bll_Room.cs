@@ -177,5 +177,15 @@ namespace HotelMain.Bll
         {
             return Dal_Room.CheckRoomId(fjbh);
         }
+
+        /// <summary>
+        /// 查询房间类型是否存在
+        /// </summary>
+        /// <param name="fjbh"></param>
+        /// <returns></returns>
+        public static object CheckRoomType(string fjlx)
+        {
+            return Dal_Room.CheckRoomType(fjlx);
+        }
     }
 }

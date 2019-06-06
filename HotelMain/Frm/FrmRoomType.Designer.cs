@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRoomType));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtn_add = new System.Windows.Forms.ToolStripButton();
@@ -51,6 +52,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_fjlx)).BeginInit();
@@ -321,5 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rzdj;
         private System.Windows.Forms.TextBox txt_lxbh;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

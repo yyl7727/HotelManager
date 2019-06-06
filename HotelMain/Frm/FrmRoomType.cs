@@ -33,15 +33,16 @@ namespace HotelMain.Frm
 
             this.tsbtn_cancel.Enabled = true;
             this.btn_ok.Enabled = true;
-            
             this.txt_fjlx.Text = string.Empty;
             this.txt_fjlx.Enabled = true;
             this.txt_lxbh.Focus();
-
             this.txt_rzdj.Text = string.Empty;
             this.txt_rzdj.Enabled = true;
             this.txt_lxbh.Text = string.Empty;
             this.txt_lxbh.Enabled = true;
+
+            this.txt_lxbh.Focus();
+            this.AcceptButton = btn_ok;
         }
 
         private void FrmRoomType_Load(object sender, EventArgs e)
@@ -123,28 +124,53 @@ namespace HotelMain.Frm
         private void btn_ok_Click(object sender, EventArgs e)
         {
             //非空验证
-            if (string.IsNullOrEmpty(this.txt_lxbh.Text) || string.IsNullOrEmpty(this.txt_fjlx.Text) || string.IsNullOrEmpty(this.txt_rzdj.Text))
+            if (string.IsNullOrEmpty(this.txt_lxbh.Text))
             {
-                MessageBox.Show("请完善类型信息", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                toolTip1.Show("请输入房间类型编号！", this.txt_lxbh, 1000);
+                this.txt_lxbh.Focus();
+                return;
+            }
+            else if (string.IsNullOrEmpty(this.txt_fjlx.Text))
+            {
+                toolTip1.Show("请输入房间类型名称！", this.txt_fjlx, 1000);
+                this.txt_fjlx.Focus();
+                return;
+            }
+            else if (string.IsNullOrEmpty(this.txt_rzdj.Text))
+            {
+                toolTip1.Show("请输入入住单价！", this.txt_rzdj, 1000);
+                this.txt_rzdj.Focus();
+                return;
             }
             #region 新增
             if (state == State.add)
             {
                 try
                 {
-                    RoomType roomtype = new RoomType();
-                    roomtype.lxbh = txt_lxbh.Text.Trim();
-                    roomtype.lxmc = txt_fjlx.Text.Trim();
-                    roomtype.rzdj = txt_rzdj.Text.Trim();
-                    bool flag = Bll_Room.AddRoomType(roomtype);
-                    if (flag)
+                    int single = Convert.ToInt32(Bll_Room.CheckRoomType(txt_lxbh.Text.Trim()));
+                    if (single > 0)
                     {
-                        txt_fjlx.Text = "";
-                        txt_lxmc.Text = "";
-                        txt_rzdj.Text = "";
-                        MessageBox.Show("添加成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //刷新数据
-                        FrmRoomType_Load(null, null);
+                        MessageBox.Show("房间类型编号已存在！");
+                        txt_lxbh.Text = "";
+                        txt_lxbh.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        RoomType roomtype = new RoomType();
+                        roomtype.lxbh = txt_lxbh.Text.Trim();
+                        roomtype.lxmc = txt_fjlx.Text.Trim();
+                        roomtype.rzdj = txt_rzdj.Text.Trim();
+                        bool flag = Bll_Room.AddRoomType(roomtype);
+                        if (flag)
+                        {
+                            txt_lxbh.Text = "";
+                            txt_lxmc.Text = "";
+                            txt_rzdj.Text = "";
+                            MessageBox.Show("添加成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //刷新数据
+                            FrmRoomType_Load(null, null);
+                        }
                     }
                 }
                 catch (MySqlException ex)
