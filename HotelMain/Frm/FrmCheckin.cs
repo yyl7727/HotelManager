@@ -52,17 +52,34 @@ namespace HotelMain.Frm
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            //非空验证
-            if (string.IsNullOrEmpty(txt_rzts.Text.Trim()) || string.IsNullOrEmpty(txt_rzyj.Text.Trim()) 
-                || string.IsNullOrEmpty(txt_khxm.Text.Trim()) || string.IsNullOrEmpty(txt_sfzmhm.Text.Trim()) 
-                || string.IsNullOrEmpty(txt_lxdh.Text.Trim()))
+            if (string.IsNullOrEmpty(txt_khxm.Text.Trim()))
             {
-                MessageBox.Show("请完善顾客信息", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                toolTip1.Show("客户姓名不能为空!", this.txt_khxm, 1000);
+                txt_khxm.Focus();
+                return;
+            }
+            if(string.IsNullOrEmpty(txt_sfzmhm.Text.Trim()))
+            {
+                toolTip1.Show("身份证号不能为空!", this.txt_sfzmhm, 1000);
+                txt_sfzmhm.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txt_rzts.Text.Trim()))
+            {
+                toolTip1.Show("入住天数不能为空!", this.txt_rzts, 1000);
+                txt_rzts.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txt_lxdh.Text.Trim()))
+            {
+                toolTip1.Show("联系电话不能为空!", this.txt_lxdh, 1000);
+                txt_lxdh.Focus();
                 return;
             }
             if (this.cb_rzfj.SelectedIndex == 0)
             {
-                MessageBox.Show("请选择入住房间类型", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                toolTip1.Show("请选择入住房间类型", this.cb_rzfj, 1000);
+                cb_rzfj.Focus();
                 return;
             }
             GuestRecord guest = new GuestRecord();
@@ -81,7 +98,7 @@ namespace HotelMain.Frm
             {
                 if (Bll_Guset.AddGuest(guest) > 0)
                 {
-                    MessageBox.Show("添加成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("入住办理成功!房间号："+ guest.fjbh, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)

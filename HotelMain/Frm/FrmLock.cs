@@ -26,6 +26,8 @@ namespace HotelMain.Frm
             else
             {
                 tp_msg.Show("密码错误", this.txt_pwd, 1000);
+                txt_pwd.Text = "";
+                txt_pwd.Focus();
             }
         }
     }

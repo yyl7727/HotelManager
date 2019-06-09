@@ -27,6 +27,12 @@ namespace HotelMain.Frm
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            #region 暂未启用的功能做隐藏显示
+            tsbtn_cywh.Visible = false;
+            tsbtn_srtj.Visible = false;
+            tsbtn_gkcx.Visible = false;
+            #endregion
+
             timer1.Start();
             //设置工具栏信息
             ts_time.Text = DateTime.Now.ToString();
@@ -222,7 +228,7 @@ namespace HotelMain.Frm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ts_time.Text = DateTime.Now.ToString();
+            ts_time.Text = DateTime.Now.ToShortTimeString();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

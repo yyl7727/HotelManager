@@ -37,14 +37,14 @@ namespace HotelMain
             //非空验证
             if (string.IsNullOrEmpty(this.txt_username.Text.Trim()))
             {
-                tp_msg.Show("请输入用户名！", this.txt_username, 1000);
-                this.txt_username.Focus();
+                tp_msg.Show("请输入用户名！", txt_username, 1000);
+                txt_username.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(this.txt_password.Text))
             {
                 tp_msg.Show("请输入密码！", this.txt_password, 1000);
-                this.txt_password.Focus();
+                txt_password.Focus();
                 return;
             }
             //登陆
@@ -65,6 +65,8 @@ namespace HotelMain
                 else
                 {
                     MessageBoxEx.Show("用户名或密码错误", "提示", MessageBoxButtons.OK);
+                    txt_password.Text = "";
+                    txt_password.Focus();
                 }
             }
             catch (MySqlException ex)

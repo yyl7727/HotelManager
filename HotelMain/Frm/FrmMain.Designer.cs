@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_lxgl = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_fjgl = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_cywh = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_srtj = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_rzdj = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_gkcx = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_lock = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_exit = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -88,112 +88,112 @@
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripButton9,
-            this.toolStripButton8,
-            this.toolStripButton7,
-            this.toolStripButton6,
-            this.toolStripButton5,
-            this.toolStripButton4,
-            this.toolStripButton3});
+            this.tsbtn_lxgl,
+            this.tsbtn_fjgl,
+            this.tsbtn_cywh,
+            this.tsbtn_srtj,
+            this.tsbtn_rzdj,
+            this.tsbtn_gkcx,
+            this.tsbtn_lock,
+            this.tsbtn_exit});
             this.toolStrip1.Location = new System.Drawing.Point(4, 32);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(934, 102);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton2
+            // tsbtn_lxgl
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton2.Size = new System.Drawing.Size(60, 99);
-            this.toolStripButton2.Text = "类型管理";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.tsbtn_lxgl.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_lxgl.Image")));
+            this.tsbtn_lxgl.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_lxgl.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_lxgl.Name = "tsbtn_lxgl";
+            this.tsbtn_lxgl.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_lxgl.Size = new System.Drawing.Size(60, 99);
+            this.tsbtn_lxgl.Text = "类型管理";
+            this.tsbtn_lxgl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_lxgl.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStripButton9
+            // tsbtn_fjgl
             // 
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton9.Size = new System.Drawing.Size(60, 99);
-            this.toolStripButton9.Text = "房间管理";
-            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
+            this.tsbtn_fjgl.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_fjgl.Image")));
+            this.tsbtn_fjgl.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_fjgl.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_fjgl.Name = "tsbtn_fjgl";
+            this.tsbtn_fjgl.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_fjgl.Size = new System.Drawing.Size(60, 99);
+            this.tsbtn_fjgl.Text = "房间管理";
+            this.tsbtn_fjgl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_fjgl.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
-            // toolStripButton8
+            // tsbtn_cywh
             // 
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton8.Size = new System.Drawing.Size(60, 99);
-            this.toolStripButton8.Text = "餐饮维护";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_cywh.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_cywh.Image")));
+            this.tsbtn_cywh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_cywh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_cywh.Name = "tsbtn_cywh";
+            this.tsbtn_cywh.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_cywh.Size = new System.Drawing.Size(60, 99);
+            this.tsbtn_cywh.Text = "餐饮维护";
+            this.tsbtn_cywh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton7
+            // tsbtn_srtj
             // 
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton7.Size = new System.Drawing.Size(60, 99);
-            this.toolStripButton7.Text = "收入统计";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_srtj.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_srtj.Image")));
+            this.tsbtn_srtj.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_srtj.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_srtj.Name = "tsbtn_srtj";
+            this.tsbtn_srtj.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_srtj.Size = new System.Drawing.Size(60, 99);
+            this.tsbtn_srtj.Text = "收入统计";
+            this.tsbtn_srtj.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton6
+            // tsbtn_rzdj
             // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton6.Size = new System.Drawing.Size(60, 99);
-            this.toolStripButton6.Text = "入住登记";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            this.tsbtn_rzdj.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_rzdj.Image")));
+            this.tsbtn_rzdj.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_rzdj.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_rzdj.Name = "tsbtn_rzdj";
+            this.tsbtn_rzdj.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_rzdj.Size = new System.Drawing.Size(60, 99);
+            this.tsbtn_rzdj.Text = "入住登记";
+            this.tsbtn_rzdj.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_rzdj.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // toolStripButton5
+            // tsbtn_gkcx
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton5.Size = new System.Drawing.Size(60, 99);
-            this.toolStripButton5.Text = "顾客查询";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_gkcx.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_gkcx.Image")));
+            this.tsbtn_gkcx.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_gkcx.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_gkcx.Name = "tsbtn_gkcx";
+            this.tsbtn_gkcx.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_gkcx.Size = new System.Drawing.Size(60, 99);
+            this.tsbtn_gkcx.Text = "顾客查询";
+            this.tsbtn_gkcx.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton4
+            // tsbtn_lock
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton4.Size = new System.Drawing.Size(52, 99);
-            this.toolStripButton4.Text = "锁定";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            this.tsbtn_lock.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_lock.Image")));
+            this.tsbtn_lock.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_lock.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_lock.Name = "tsbtn_lock";
+            this.tsbtn_lock.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_lock.Size = new System.Drawing.Size(52, 99);
+            this.tsbtn_lock.Text = "锁定";
+            this.tsbtn_lock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_lock.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
-            // toolStripButton3
+            // tsbtn_exit
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.toolStripButton3.Size = new System.Drawing.Size(52, 99);
-            this.toolStripButton3.Text = "退出";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.tsbtn_exit.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_exit.Image")));
+            this.tsbtn_exit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtn_exit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_exit.Name = "tsbtn_exit";
+            this.tsbtn_exit.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsbtn_exit.Size = new System.Drawing.Size(52, 99);
+            this.tsbtn_exit.Text = "退出";
+            this.tsbtn_exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_exit.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // panel1
             // 
@@ -515,14 +515,14 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tsbtn_lxgl;
+        private System.Windows.Forms.ToolStripButton tsbtn_fjgl;
+        private System.Windows.Forms.ToolStripButton tsbtn_cywh;
+        private System.Windows.Forms.ToolStripButton tsbtn_srtj;
+        private System.Windows.Forms.ToolStripButton tsbtn_rzdj;
+        private System.Windows.Forms.ToolStripButton tsbtn_gkcx;
+        private System.Windows.Forms.ToolStripButton tsbtn_lock;
+        private System.Windows.Forms.ToolStripButton tsbtn_exit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel panel2;
