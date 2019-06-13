@@ -248,6 +248,7 @@
             this.ts_loginuser.Name = "ts_loginuser";
             this.ts_loginuser.Size = new System.Drawing.Size(131, 17);
             this.ts_loginuser.Text = "toolStripStatusLabel4";
+            this.ts_loginuser.Click += new System.EventHandler(this.ts_loginuser_Click);
             // 
             // panel2
             // 

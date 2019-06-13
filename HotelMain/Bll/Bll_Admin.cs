@@ -20,5 +20,14 @@ namespace HotelMain.Bll
             admin.ygmm = Encryption.Md5(admin.ygmm);
             return Dal_Admin.CheckIdPwd(admin);
         }
+
+        /// <summary>
+        /// 获取所有用户信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<Admin> GetAllUser()
+        {
+            return Dal_Admin.GetAllUser();
+        }
     }
 }

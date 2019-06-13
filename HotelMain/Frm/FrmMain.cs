@@ -242,5 +242,15 @@ namespace HotelMain.Frm
             FrmLock frmlock = new FrmLock();
             frmlock.ShowDialog();
         }
+
+        private void ts_loginuser_Click(object sender, EventArgs e)
+        {
+            if (ts_loginuser.Text == "admin")
+            {
+                //todo  显示系统管理界面
+                FrmSetting fs = new FrmSetting();
+                fs.ShowDialog();
+            }
+        }
     }
 }

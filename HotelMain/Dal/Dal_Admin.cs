@@ -24,5 +24,25 @@ namespace HotelMain.Dal
                                   };
             return SqlHelper.ExecuteScalar("Login", CommandType.StoredProcedure, para);
         }
+
+        /// <summary>
+        /// 获取所有用户信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<Admin> GetAllUser()
+        {
+            List<Admin> lst_admin = new List<Admin>();
+            string sql = "select * from Admin";
+            MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, null);
+            while (reader.Read())
+            {
+                Admin admin = new Admin();
+                admin.ygxh = reader["ygxh"].ToString();
+                admin.ygmm = reader["ygmm"].ToString();
+                lst_admin.Add(admin);
+            }
+            reader.Close();
+            return lst_admin;
+        }
     }
 }
