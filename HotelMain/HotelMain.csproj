@@ -120,6 +120,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Encryption.cs" />
+    <Compile Include="Tool\LogHelper.cs" />
     <Compile Include="Tool\LoginInfo.cs" />
     <Compile Include="Tool\lshCreate.cs" />
     <Compile Include="Tool\SqlHelper.cs" />

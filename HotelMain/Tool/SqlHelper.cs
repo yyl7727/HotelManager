@@ -145,6 +145,7 @@ namespace HotelMain.Tool
             {
                 PrepareCommand(cmd, connection, null, cmdType, cmdText, commandParameters);
                 object val = cmd.ExecuteScalar();
+                LogHelper.writeSqlLog(cmd.CommandText);
                 cmd.Parameters.Clear();
                 return val;
             }
