@@ -123,8 +123,6 @@ namespace HotelMain.Tool
             }
         }
 
-
-
         /// <summary>
         /// 用指定的数据库连接字符串执行一个命令并返回一个数据集的第一列
         /// </summary>
@@ -139,8 +137,6 @@ namespace HotelMain.Tool
         public static object ExecuteScalar(string cmdText, CommandType cmdType = CommandType.Text, params MySqlParameter[] commandParameters)
         {
             MySqlCommand cmd = new MySqlCommand();
-
-
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 PrepareCommand(cmd, connection, null, cmdType, cmdText, commandParameters);
@@ -150,7 +146,6 @@ namespace HotelMain.Tool
                 return val;
             }
         }
-
 
         /// <summary>
         /// 将参数集合添加到缓存
@@ -162,7 +157,6 @@ namespace HotelMain.Tool
             parmCache[cacheKey] = commandParameters;
         }
 
-
         /// <summary>
         /// 找回缓存参数集合
         /// </summary>
@@ -171,22 +165,13 @@ namespace HotelMain.Tool
         public static MySqlParameter[] GetCachedParameters(string cacheKey)
         {
             MySqlParameter[] cachedParms = (MySqlParameter[])parmCache[cacheKey];
-
-
             if (cachedParms == null)
                 return null;
-
-
             MySqlParameter[] clonedParms = new MySqlParameter[cachedParms.Length];
-
-
             for (int i = 0, j = cachedParms.Length; i < j; i++)
                 clonedParms[i] = (MySqlParameter)((ICloneable)cachedParms[i]).Clone();
-
-
             return clonedParms;
         }
-
 
         /// <summary>
         /// 准备执行一个命令
@@ -201,19 +186,13 @@ namespace HotelMain.Tool
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-
-
             cmd.Connection = conn;
             cmd.CommandText = cmdText;
-
-
             if (trans != null)
+            {
                 cmd.Transaction = trans;
-
-
+            }
             cmd.CommandType = cmdType;
-
-
             if (cmdParms != null)
             {
                 foreach (MySqlParameter parameter in cmdParms)

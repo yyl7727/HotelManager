@@ -81,6 +81,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmSetting";
             this.Text = "用户权限管理";
             this.Load += new System.EventHandler(this.FrmSetting_Load);
