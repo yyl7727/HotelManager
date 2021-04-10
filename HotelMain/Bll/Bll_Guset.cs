@@ -14,7 +14,7 @@ namespace HotelMain.Bll
         /// </summary>
         /// <param name="guest"></param>
         /// <returns></returns>
-        public static int AddGuest(GuestRecord guest)
+        public static int AddGuest(RoomRecord guest)
         {
             return Dal_Guest.AddGuest(guest);
         }
@@ -24,7 +24,7 @@ namespace HotelMain.Bll
         /// </summary>
         /// <param name="fjbh"></param>
         /// <returns></returns>
-        public static GuestRecord GetRecordInfo(string fjbh)
+        public static RoomRecord GetRecordInfo(string fjbh)
         {
             return Dal_Guest.GetRecordInfo(fjbh);
         }

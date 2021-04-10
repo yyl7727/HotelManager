@@ -252,5 +252,15 @@ namespace HotelMain.Frm
                 fs.ShowDialog();
             }
         }
+
+        /// <summary>
+        /// 预定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 预定ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

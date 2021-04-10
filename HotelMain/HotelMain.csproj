@@ -81,6 +81,12 @@
     <Compile Include="Frm\FrmCheckout.Designer.cs">
       <DependentUpon>FrmCheckout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmCustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmCustomerInfo.Designer.cs">
+      <DependentUpon>FrmCustomerInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmLock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,7 +119,8 @@
     </Compile>
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\FreeRoomNum.cs" />
-    <Compile Include="Model\GuestRecord.cs" />
+    <Compile Include="Model\Guest.cs" />
+    <Compile Include="Model\RoomRecord.cs" />
     <Compile Include="Model\Pass.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomState.cs" />
@@ -127,6 +134,7 @@
     <Compile Include="Tool\lshCreate.cs" />
     <Compile Include="Tool\SqlHelper.cs" />
     <Compile Include="Tool\State.cs" />
+    <Compile Include="Tool\TempGuest.cs" />
     <EmbeddedResource Include="Frmlogin.resx">
       <DependentUpon>Frmlogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmCheckout.resx">
       <DependentUpon>FrmCheckout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmCustomerInfo.resx">
+      <DependentUpon>FrmCustomerInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmLock.resx">
       <DependentUpon>FrmLock.cs</DependentUpon>
@@ -183,6 +194,7 @@
     <Content Include="Img\fjgl.png" />
     <Content Include="Img\gkcx.png" />
     <Content Include="Img\huai.jpg" />
+    <Content Include="Img\kfyd.png" />
     <Content Include="Img\login.jpg" />
     <Content Include="Img\lxgl.png" />
     <Content Include="Img\rzdj.png" />

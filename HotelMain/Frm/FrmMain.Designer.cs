@@ -71,6 +71,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.预定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -432,6 +433,7 @@
             // 
             this.lv_room.ContextMenuStrip = this.contextMenuStrip1;
             this.lv_room.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_room.HideSelection = false;
             this.lv_room.LargeImageList = this.imageList1;
             this.lv_room.Location = new System.Drawing.Point(3, 17);
             this.lv_room.Name = "lv_room";
@@ -442,22 +444,23 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.预定ToolStripMenuItem,
             this.退房ToolStripMenuItem,
             this.修改状态ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // 退房ToolStripMenuItem
             // 
             this.退房ToolStripMenuItem.Name = "退房ToolStripMenuItem";
-            this.退房ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.退房ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.退房ToolStripMenuItem.Text = "退房";
             this.退房ToolStripMenuItem.Click += new System.EventHandler(this.退房ToolStripMenuItem_Click);
             // 
             // 修改状态ToolStripMenuItem
             // 
             this.修改状态ToolStripMenuItem.Name = "修改状态ToolStripMenuItem";
-            this.修改状态ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改状态ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.修改状态ToolStripMenuItem.Text = "修改状态";
             // 
             // imageList1
@@ -478,6 +481,13 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            // 
+            // 预定ToolStripMenuItem
+            // 
+            this.预定ToolStripMenuItem.Name = "预定ToolStripMenuItem";
+            this.预定ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.预定ToolStripMenuItem.Text = "预定";
+            this.预定ToolStripMenuItem.Click += new System.EventHandler(this.预定ToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -556,5 +566,6 @@
         private System.Windows.Forms.ToolStripMenuItem 修改状态ToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem 预定ToolStripMenuItem;
     }
 }

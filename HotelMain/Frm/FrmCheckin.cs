@@ -19,11 +19,11 @@ namespace HotelMain.Frm
         public FrmCheckin()
         {
             InitializeComponent();
-            cb_khxb.SelectedIndex = 0;
         }
 
         private void FrmCheckin_Load(object sender, EventArgs e)
         {
+            InitListView();
             //查询未入住房间
             try
             {
@@ -52,18 +52,7 @@ namespace HotelMain.Frm
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_khxm.Text.Trim()))
-            {
-                toolTip1.Show("客户姓名不能为空!", this.txt_khxm, 1000);
-                txt_khxm.Focus();
-                return;
-            }
-            if(string.IsNullOrEmpty(txt_sfzmhm.Text.Trim()))
-            {
-                toolTip1.Show("身份证号不能为空!", this.txt_sfzmhm, 1000);
-                txt_sfzmhm.Focus();
-                return;
-            }
+            //TODO 添加住户信息不能为空的判断
             if (string.IsNullOrEmpty(txt_rzts.Text.Trim()))
             {
                 toolTip1.Show("入住天数不能为空!", this.txt_rzts, 1000);
@@ -82,23 +71,24 @@ namespace HotelMain.Frm
                 cb_rzfj.Focus();
                 return;
             }
-            GuestRecord guest = new GuestRecord();
-            guest.lsh = lshCreate.GetLsh();
+            RoomRecord record = new RoomRecord();
+            record.lsh = lshCreate.GetLsh();
+            record.lxdh = this.txt_lxdh.Text.Trim();
+            //DEL 2021/04/10  客户信息单表存放用于解决一个客房多个用户登记的问题
+            /*guest.xb = this.cb_khxb.Text;
             guest.khxm = this.txt_khxm.Text.Trim();
-            guest.sfzmhm = this.txt_sfzmhm.Text.Trim();
-            guest.lxdh = this.txt_lxdh.Text.Trim();
-            guest.xb = this.cb_khxb.Text;
-            guest.rzyj = this.txt_rzyj.Text.Trim();
-            guest.fjbh = Bll_Room.GetFreeRoomIdWithFjlx(cb_rzfj.SelectedValue.ToString()).ToString();
-            guest.rzrq = this.dtp_rzsj.Value;
-            guest.rzts = this.txt_rzts.Text.Trim();
-            guest.tfrq = guest.rzrq.AddDays(Convert.ToInt32(guest.rzts));
-            guest.rzzt = "1";
+            guest.sfzmhm = this.txt_sfzmhm.Text.Trim();*/
+            record.rzyj = this.txt_rzyj.Text.Trim();
+            record.fjbh = Bll_Room.GetFreeRoomIdWithFjlx(cb_rzfj.SelectedValue.ToString()).ToString();
+            record.rzrq = this.dtp_rzsj.Value;
+            record.rzts = this.txt_rzts.Text.Trim();
+            record.tfrq = record.rzrq.AddDays(Convert.ToInt32(record.rzts));
+            record.rzzt = "1";
             try
             {
-                if (Bll_Guset.AddGuest(guest) > 0)
+                if (Bll_Guset.AddGuest(record) > 0)
                 {
-                    MessageBox.Show("入住办理成功!房间号："+ guest.fjbh, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("入住办理成功!房间号："+ record.fjbh, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)
@@ -109,6 +99,43 @@ namespace HotelMain.Frm
             {
                 MessageBox.Show("其它异常：" + ex.Message);
             }
+        }
+
+        /// <summary>
+        /// 初始化listview
+        /// </summary>
+        private void InitListView()
+        {
+            listView1.Clear();
+            listView1.Columns.Add("姓名");
+            listView1.Columns.Add("性别");
+            listView1.Columns.Add("身份证号码");
+            listView1.Columns[0].Width = 100;
+            listView1.Columns[1].Width = 100;
+            listView1.Columns[2].Width = 200;
+        }
+
+        private void InitListViewData()
+        {
+            foreach (Guest guest in TempGuest.guests)
+            {
+                ListViewItem li = new ListViewItem(guest.yhxm);
+                li.SubItems.Add(guest.yhxb);
+                li.SubItems.Add(guest.sfzhm);
+                listView1.Items.Add(li);
+            }
+        }
+
+        /// <summary>
+        /// 新增客户信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmCustomerInfo customerInfo = new FrmCustomerInfo();
+            customerInfo.ShowDialog();
+            InitListViewData();
         }
     }
 }

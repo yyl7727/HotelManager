@@ -2,10 +2,7 @@
 using HotelMain.Tool;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 
 namespace HotelMain.Dal
 {
@@ -16,16 +13,13 @@ namespace HotelMain.Dal
         /// </summary>
         /// <param name="guest"></param>
         /// <returns></returns>
-        public static int AddGuest(GuestRecord guest)
+        public static int AddGuest(RoomRecord guest)
         {
-            string sql = "insert into guestrecord(lsh,khxm,khxb,sfzmhm,lxdh,fjbh,rzzt,rzrq,rzts,rzyj,ldrq) "
+            string sql = "insert into guestrecord(lsh,lxdh,fjbh,rzzt,rzrq,rzts,rzyj,ldrq) "
                 + "values(@rzbh,@GuestName,@Gender,@IdentityId,@Phone,@RoomId,@ResideId,@ResideDate,@TradeNo,@Deposit,@LeaveDate);"
                 + "update room set fjzt=@RoomStateId where fjbh=@RoomId";
             MySqlParameter[] para = {
                 new MySqlParameter("@rzbh",guest.lsh),
-                new MySqlParameter("@GuestName",guest.khxm),
-                new MySqlParameter("@Gender",guest.xb == "男"?0:1),
-                new MySqlParameter("@IdentityId",guest.sfzmhm),
                 new MySqlParameter("@Phone",guest.lxdh),
                 new MySqlParameter("@RoomId",guest.fjbh),
                 new MySqlParameter("@ResideId",guest.rzzt),
@@ -43,9 +37,9 @@ namespace HotelMain.Dal
         /// </summary>
         /// <param name="fjbh"></param>
         /// <returns></returns>
-        public static GuestRecord GetRecordInfo(string fjbh)
+        public static RoomRecord GetRecordInfo(string fjbh)
         {
-            GuestRecord guestrecord = new GuestRecord();
+            RoomRecord guestrecord = new RoomRecord();
             string sql="select fjbh,khxm,sfzmhm,rzrq from guestrecord where fjbh=@fjbh and rzzt='1'";
             MySqlParameter[] para = {
                 new MySqlParameter("@fjbh",fjbh)
@@ -53,8 +47,6 @@ namespace HotelMain.Dal
             MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
             reader.Read();
             guestrecord.fjbh= reader["fjbh"].ToString();
-            guestrecord.khxm= reader["khxm"].ToString();
-            guestrecord.sfzmhm= reader["sfzmhm"].ToString(); 
             guestrecord.rzrq= Convert.ToDateTime(reader["rzrq"].ToString());
             return guestrecord;
         }

@@ -16,7 +16,7 @@ namespace HotelMain.Frm
     public partial class FrmCheckout : Skin_Mac
     {
         string fjbh;
-        GuestRecord guestrecord = new GuestRecord();
+        RoomRecord guestrecord = new RoomRecord();
         public FrmCheckout()
         {
             InitializeComponent();
@@ -42,8 +42,8 @@ namespace HotelMain.Frm
             try
             {
                 guestrecord = Bll_Guset.GetRecordInfo(fjbh);
-                lb_khxm.Text = guestrecord.khxm;
-                lb_sfzmhm.Text = guestrecord.sfzmhm;
+                //lb_khxm.Text = guestrecord.khxm;
+                //lb_sfzmhm.Text = guestrecord.sfzmhm;
                 lb_rzrq.Text = guestrecord.rzrq.ToString();
             }
             catch (MySqlException ex)

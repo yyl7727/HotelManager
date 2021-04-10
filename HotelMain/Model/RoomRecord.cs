@@ -1,35 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace HotelMain.Model
 {
     /// <summary>
-    /// 客户入住记录实体
+    /// 入住记录实体
     /// </summary>
-    public class GuestRecord
+    public class RoomRecord
     {
         /// <summary>
         /// 流水号
         /// </summary>
         public string lsh { get; set; }
         /// <summary>
-        /// 客户姓名
+        /// 客户信息
         /// </summary>
-        public string khxm { get; set; }
-        /// <summary>
-        /// 身份证号
-        /// </summary>
-        public string sfzmhm { get; set; }
+        public List<Guest> khxx { get; set; }
         /// <summary>
         /// 联系电话
         /// </summary>
         public string lxdh { get; set; }
-        /// <summary>
-        /// 客户性别
-        /// </summary>
-        public string xb { get; set; }
         /// <summary>
         /// 房间编号
         /// </summary>
