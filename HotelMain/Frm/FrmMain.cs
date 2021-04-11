@@ -253,14 +253,11 @@ namespace HotelMain.Frm
             }
         }
 
-        /// <summary>
-        /// 预定
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 预定ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripTextBox2_TextChanged(object sender, EventArgs e)
         {
-
+            this.lv_room.Items.Clear();
+            List<Room> room = Bll_Room.GetRoomByFjbh(toolStripTextBox2.Text);
+            Method(room);
         }
     }
 }

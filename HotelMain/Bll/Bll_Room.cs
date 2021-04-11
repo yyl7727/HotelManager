@@ -121,6 +121,15 @@ namespace HotelMain.Bll
         }
 
         /// <summary>
+        /// 根据房间号获取房间信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<Room> GetRoomByFjbh(string roomId)
+        {
+            return Dal_Room.GetRoomByFjbh(roomId);
+        }
+
+        /// <summary>
         /// 删除房间信息
         /// </summary>
         /// <param name="roomId"></param>

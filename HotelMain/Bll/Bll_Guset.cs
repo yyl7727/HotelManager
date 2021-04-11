@@ -1,5 +1,6 @@
 ﻿using HotelMain.Dal;
 using HotelMain.Model;
+using HotelMain.Model.vo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace HotelMain.Bll
         /// <returns></returns>
         public static int AddGuest(RoomRecord guest)
         {
-            return Dal_Guest.AddGuest(guest);
+            return Dal_Guest.AddCheckinRecord(guest);
         }
 
         /// <summary>
@@ -24,7 +25,7 @@ namespace HotelMain.Bll
         /// </summary>
         /// <param name="fjbh"></param>
         /// <returns></returns>
-        public static RoomRecord GetRecordInfo(string fjbh)
+        public static CheckInfoVo GetRecordInfo(string fjbh)
         {
             return Dal_Guest.GetRecordInfo(fjbh);
         }

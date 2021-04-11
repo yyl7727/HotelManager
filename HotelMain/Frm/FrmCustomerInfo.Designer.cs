@@ -52,7 +52,7 @@
             this.txt_name.Location = new System.Drawing.Point(26, 63);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(133, 21);
-            this.txt_name.TabIndex = 1;
+            this.txt_name.TabIndex = 0;
             // 
             // label2
             // 
@@ -77,7 +77,7 @@
             this.txt_idNo.Location = new System.Drawing.Point(26, 114);
             this.txt_idNo.Name = "txt_idNo";
             this.txt_idNo.Size = new System.Drawing.Size(133, 21);
-            this.txt_idNo.TabIndex = 1;
+            this.txt_idNo.TabIndex = 2;
             // 
             // cb_sex
             // 
@@ -88,7 +88,7 @@
             this.cb_sex.Location = new System.Drawing.Point(196, 64);
             this.cb_sex.Name = "cb_sex";
             this.cb_sex.Size = new System.Drawing.Size(133, 20);
-            this.cb_sex.TabIndex = 2;
+            this.cb_sex.TabIndex = 1;
             // 
             // button1
             // 
@@ -105,7 +105,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 211);
+            this.ClientSize = new System.Drawing.Size(355, 211);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cb_sex);
             this.Controls.Add(this.txt_idNo);

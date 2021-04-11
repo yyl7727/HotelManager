@@ -10,8 +10,8 @@ namespace HotelMain.Tool
     public static class TempGuest
     {
 
-        private static List<Guest> _guest;
-        public static List<Guest> guests
+        public static List<Guest> guests = new List<Guest>();
+        /*public static List<Guest> guests
         {
             get
             {
@@ -26,6 +26,6 @@ namespace HotelMain.Tool
             }
             set { }
 
-        }
+        }*/
     }
 }

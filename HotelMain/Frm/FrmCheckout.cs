@@ -1,6 +1,7 @@
 ﻿using CCWin;
 using HotelMain.Bll;
 using HotelMain.Model;
+using HotelMain.Model.vo;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace HotelMain.Frm
     public partial class FrmCheckout : Skin_Mac
     {
         string fjbh;
-        RoomRecord guestrecord = new RoomRecord();
+        CheckInfoVo checkInfoVo = new CheckInfoVo();
         public FrmCheckout()
         {
             InitializeComponent();
@@ -41,10 +42,10 @@ namespace HotelMain.Frm
         {
             try
             {
-                guestrecord = Bll_Guset.GetRecordInfo(fjbh);
-                //lb_khxm.Text = guestrecord.khxm;
-                //lb_sfzmhm.Text = guestrecord.sfzmhm;
-                lb_rzrq.Text = guestrecord.rzrq.ToString();
+                checkInfoVo = Bll_Guset.GetRecordInfo(fjbh);
+                lb_khxm.Text = checkInfoVo.yhxm;
+                lb_sfzmhm.Text = checkInfoVo.sfzhm;
+                lb_rzrq.Text = checkInfoVo.rzrq.ToString();
             }
             catch (MySqlException ex)
             {

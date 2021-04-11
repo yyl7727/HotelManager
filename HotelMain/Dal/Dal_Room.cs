@@ -221,6 +221,27 @@ namespace HotelMain.Dal
             return room;
         }
 
+        public static List<Room> GetRoomByFjbh(string roomId)
+        {
+            List<Room> room = new List<Room>();
+            string sql = "select fjbh,fjzt,GetCodeMean('1001',fjlx) fjlx,bz from room where fjbh=@roomid";
+            MySqlParameter[] para = {
+                new MySqlParameter("@roomid",roomId)
+            };
+            MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
+            while (reader.Read())
+            {
+                Room r = new Room();
+                r.fjbh = reader["fjbh"].ToString();
+                r.fjzt = reader["fjzt"].ToString();
+                r.fjlx = reader["fjlx"].ToString();
+                r.bz = reader["bz"].ToString();
+                room.Add(r);
+            }
+            reader.Close();
+            return room;
+        }
+
         /// <summary>
         /// 获取房间状态信息
         /// </summary>

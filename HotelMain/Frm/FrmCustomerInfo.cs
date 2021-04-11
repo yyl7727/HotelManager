@@ -24,10 +24,11 @@ namespace HotelMain.Frm
         {
             Guest guest = new Guest();
             guest.yhxm = txt_name.Text;
-            guest.yhxb = "男".Equals(cb_sex.Text)?"0":"1";
+            guest.yhxb = cb_sex.Text;
             guest.sfzhm = txt_idNo.Text;
             TempGuest.guests.Add(guest);
             InitTxt();
+            MessageBox.Show("添加成功");
         }
 
         private void InitTxt()

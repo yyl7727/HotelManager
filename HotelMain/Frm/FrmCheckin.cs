@@ -5,11 +5,6 @@ using HotelMain.Tool;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace HotelMain.Frm
@@ -84,6 +79,8 @@ namespace HotelMain.Frm
             record.rzts = this.txt_rzts.Text.Trim();
             record.tfrq = record.rzrq.AddDays(Convert.ToInt32(record.rzts));
             record.rzzt = "1";
+            record.khxx = TempGuest.guests;
+
             try
             {
                 if (Bll_Guset.AddGuest(record) > 0)
@@ -117,6 +114,7 @@ namespace HotelMain.Frm
 
         private void InitListViewData()
         {
+            InitListView();
             foreach (Guest guest in TempGuest.guests)
             {
                 ListViewItem li = new ListViewItem(guest.yhxm);
@@ -133,6 +131,27 @@ namespace HotelMain.Frm
         /// <param name="e"></param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            List<Guest> guests = new List<Guest>();
+
+            for (int i = 0; i < TempGuest.guests.Count; i++)
+            {
+                TempGuest.guests.Remove(TempGuest.guests[i]);
+            }
+            //考虑添加完客户后关闭添加窗口又再一次打开添加的情况
+            //首先把listview中的数据读取保存，然后再清空添加
+            
+            //TempGuest.guests.Clear();
+            foreach (ListViewItem li in listView1.Items)
+            {
+                Guest guest = new Guest();
+                guest.yhxm = li.SubItems[0].Text.Trim();
+                guest.yhxb = li.SubItems[1].Text.Trim();
+                guest.sfzhm = li.SubItems[2].Text.Trim();
+                guests.Add(guest);
+            }
+            TempGuest.guests = guests;
+            
+            
             FrmCustomerInfo customerInfo = new FrmCustomerInfo();
             customerInfo.ShowDialog();
             InitListViewData();

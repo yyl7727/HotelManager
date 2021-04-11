@@ -126,6 +126,7 @@
     <Compile Include="Model\RoomState.cs" />
     <Compile Include="Model\RoomType.cs" />
     <Compile Include="Model\SysCode.cs" />
+    <Compile Include="Model\vo\CheckInfoVo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Encryption.cs" />
