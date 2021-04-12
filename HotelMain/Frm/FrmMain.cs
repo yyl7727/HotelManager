@@ -255,9 +255,16 @@ namespace HotelMain.Frm
 
         private void toolStripTextBox2_TextChanged(object sender, EventArgs e)
         {
-            this.lv_room.Items.Clear();
-            List<Room> room = Bll_Room.GetRoomByFjbh(toolStripTextBox2.Text);
-            Method(room);
+            if (!string.IsNullOrEmpty(toolStripTextBox2.Text))
+            {
+                this.lv_room.Items.Clear();
+                List<Room> room = Bll_Room.GetRoomByFjbh(toolStripTextBox2.Text);
+                Method(room);
+            }
+            else
+            {
+                FrmMain_Load(null, null);
+            }
         }
     }
 }

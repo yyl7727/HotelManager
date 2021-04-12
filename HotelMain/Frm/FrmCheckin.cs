@@ -47,7 +47,12 @@ namespace HotelMain.Frm
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            //TODO 添加住户信息不能为空的判断
+            if(listView1.Items.Count == 0)
+            {
+                toolTip1.Show("客户信息不能为空!", this.listView1, 1000);
+                listView1.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(txt_rzts.Text.Trim()))
             {
                 toolTip1.Show("入住天数不能为空!", this.txt_rzts, 1000);
@@ -69,10 +74,6 @@ namespace HotelMain.Frm
             RoomRecord record = new RoomRecord();
             record.lsh = lshCreate.GetLsh();
             record.lxdh = this.txt_lxdh.Text.Trim();
-            //DEL 2021/04/10  客户信息单表存放用于解决一个客房多个用户登记的问题
-            /*guest.xb = this.cb_khxb.Text;
-            guest.khxm = this.txt_khxm.Text.Trim();
-            guest.sfzmhm = this.txt_sfzmhm.Text.Trim();*/
             record.rzyj = this.txt_rzyj.Text.Trim();
             record.fjbh = Bll_Room.GetFreeRoomIdWithFjlx(cb_rzfj.SelectedValue.ToString()).ToString();
             record.rzrq = this.dtp_rzsj.Value;
@@ -112,6 +113,9 @@ namespace HotelMain.Frm
             listView1.Columns[2].Width = 200;
         }
 
+        /// <summary>
+        /// 初始化listview中的数据
+        /// </summary>
         private void InitListViewData()
         {
             InitListView();
@@ -155,6 +159,31 @@ namespace HotelMain.Frm
             FrmCustomerInfo customerInfo = new FrmCustomerInfo();
             customerInfo.ShowDialog();
             InitListViewData();
+        }
+
+        /// <summary>
+        /// 删除客户信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                Guest guest = new Guest();
+                guest.yhxm = listView1.SelectedItems[0].SubItems[0].Text.Trim();
+                guest.sfzhm = listView1.SelectedItems[0].SubItems[2].Text.Trim();
+
+                for (int i = 0; i < TempGuest.guests.Count; i++)
+                {
+                    if(TempGuest.guests[i].sfzhm == guest.sfzhm && TempGuest.guests[i].yhxm == guest.yhxm)
+                    {
+                        TempGuest.guests.Remove(TempGuest.guests[i]);
+                    }
+                }
+                
+                InitListViewData();
+            }
         }
     }
 }

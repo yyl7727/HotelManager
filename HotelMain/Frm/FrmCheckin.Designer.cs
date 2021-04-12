@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCheckin));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -55,7 +54,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.linkLabel3);
-            this.groupBox1.Controls.Add(this.linkLabel2);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.dtp_rzsj);
@@ -80,22 +78,13 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(200, 133);
+            this.linkLabel3.Location = new System.Drawing.Point(106, 133);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(53, 12);
             this.linkLabel3.TabIndex = 7;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "删除客户";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(118, 133);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(53, 12);
-            this.linkLabel2.TabIndex = 7;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "修改客户";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -103,7 +92,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(33, 133);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(53, 12);
-            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "添加客户";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -144,21 +133,21 @@
             this.cb_rzfj.Location = new System.Drawing.Point(93, 24);
             this.cb_rzfj.Name = "cb_rzfj";
             this.cb_rzfj.Size = new System.Drawing.Size(133, 20);
-            this.cb_rzfj.TabIndex = 3;
+            this.cb_rzfj.TabIndex = 1;
             // 
             // txt_rzyj
             // 
             this.txt_rzyj.Location = new System.Drawing.Point(93, 59);
             this.txt_rzyj.Name = "txt_rzyj";
             this.txt_rzyj.Size = new System.Drawing.Size(133, 21);
-            this.txt_rzyj.TabIndex = 2;
+            this.txt_rzyj.TabIndex = 3;
             // 
             // txt_rzts
             // 
             this.txt_rzts.Location = new System.Drawing.Point(93, 95);
             this.txt_rzts.Name = "txt_rzts";
             this.txt_rzts.Size = new System.Drawing.Size(133, 21);
-            this.txt_rzts.TabIndex = 2;
+            this.txt_rzts.TabIndex = 5;
             // 
             // txt_lxdh
             // 
@@ -172,7 +161,7 @@
             this.btn_ok.Location = new System.Drawing.Point(200, 350);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 23);
-            this.btn_ok.TabIndex = 1;
+            this.btn_ok.TabIndex = 8;
             this.btn_ok.Text = "确定";
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
@@ -259,7 +248,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
