@@ -81,10 +81,16 @@ namespace HotelMain.Dal
         /// <returns></returns>
         public static object GetRoomCount(string fjlx)
         {
+            if (fjlx == "0")
+            {
+                string sql = "select count(*) sl from room t";
+                return SqlHelper.ExecuteScalar(sql, CommandType.Text, null);
+            }
+            string sql1 = "select count(*) sl from room t where t.fjlx =@fjlx";
             MySqlParameter[] para = {
                 new MySqlParameter("@fjlx", fjlx)
             };
-            return SqlHelper.ExecuteScalar("Getroomcount", CommandType.StoredProcedure, para);
+            return SqlHelper.ExecuteScalar(sql1, CommandType.Text, para);
         }
 
         /// <summary>
@@ -94,11 +100,20 @@ namespace HotelMain.Dal
         /// <returns></returns>
         public static object GetRoomStateCount(string fjzt, string fjlx)
         {
-            MySqlParameter[] para = {
+            if (fjlx == "0")
+            {
+                string sql = "select count(*) sl from Room where fjzt=@fjzt";
+                MySqlParameter[] para = {
+                    new MySqlParameter("@fjzt", fjzt)
+                };
+                return SqlHelper.ExecuteScalar(sql, CommandType.Text, para);
+            }
+            string sql1 = "select count(*) sl from Room where fjzt =@fjzt and fjbh =@fjlx";
+            MySqlParameter[] para1 = {
                 new MySqlParameter("@fjzt", fjzt),
                 new MySqlParameter("@fjlx",fjlx)
             };
-            return SqlHelper.ExecuteScalar("GetRoomStateCount", CommandType.StoredProcedure, para);
+            return SqlHelper.ExecuteScalar(sql1, CommandType.Text, para1);
         }
 
         /// <summary>
@@ -154,12 +169,13 @@ namespace HotelMain.Dal
         /// <returns>受影响行数</returns>
         public static int AddRoomType(RoomType type)
         {
+            string sql = "insert into syscode(dmlb,dmz,dmsm1,dmsm2,dmsm3,zt,bz) values('1001',@lxbh,@lxmc,@rzdj, '', '1', 'dmz：房间类型id，dmsm1：房间类型名称，dmsm2：入住一晚单价')";
             MySqlParameter[] para = {
                 new MySqlParameter("@lxbh",type.lxbh),
                 new MySqlParameter("@lxmc",type.lxmc),
                 new MySqlParameter("@rzdj",type.rzdj)
             };
-            return SqlHelper.ExecuteNonQuery("AddRoomType", CommandType.StoredProcedure, para);
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
         }
 
         /// <summary>
@@ -181,7 +197,7 @@ namespace HotelMain.Dal
         }
 
         /// <summary>
-        /// 获取房间信息
+        /// 获取所有房间信息
         /// </summary>
         /// <returns></returns>
         public static List<Room> GetRoomInfo(string roomId)
@@ -189,7 +205,8 @@ namespace HotelMain.Dal
             List<Room> room = new List<Room>();
             if (string.IsNullOrEmpty(roomId))
             {
-                MySqlDataReader reader = SqlHelper.ExecuteReader("GetRoomInfo", CommandType.StoredProcedure, null);
+                string sql = "select fjbh,GetCodeMean('1002',fjzt) fjzt,GetCodeMean('1001',fjlx) fjlx,bz from room";
+                MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, null);
                 while (reader.Read())
                 {
                     Room r = new Room();
@@ -203,10 +220,11 @@ namespace HotelMain.Dal
             }
             else
             {
+                string sql = "select fjbh,GetCodeMean('1002',fjzt) fjzt,GetCodeMean('1001',fjlx) fjlx,bz from room where fjbh=@roomid";
                 MySqlParameter[] para = {
                     new MySqlParameter("@roomid",roomId)
                 };
-                MySqlDataReader reader = SqlHelper.ExecuteReader("GetRoomInfoWithFjbh", CommandType.StoredProcedure, para);
+                MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
                 while (reader.Read())
                 {
                     Room r = new Room();

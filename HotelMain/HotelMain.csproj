@@ -99,6 +99,12 @@
     <Compile Include="Frm\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmReserve.Designer.cs">
+      <DependentUpon>FrmReserve.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmRoomInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     <EmbeddedResource Include="Frm\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmReserve.resx">
+      <DependentUpon>FrmReserve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmRoomInfo.resx">
       <DependentUpon>FrmRoomInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +214,7 @@
     <Content Include="Img\tc.png" />
     <Content Include="Img\weizhu.jpg" />
     <Content Include="Img\yizhu.jpg" />
+    <Content Include="Img\yuding.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

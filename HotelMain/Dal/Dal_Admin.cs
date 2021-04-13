@@ -18,11 +18,12 @@ namespace HotelMain.Dal
         /// <returns></returns>
         public static object CheckIdPwd(Admin admin)
         {
+            string sql = "select count(*) sl from Admin t where t.ygxh=@ygxh and t.ygmm=@ygmm";
             MySqlParameter[] para = {
                                     new MySqlParameter("@ygxh",admin.ygxh),
                                     new MySqlParameter("@ygmm",admin.ygmm)
                                   };
-            return SqlHelper.ExecuteScalar("Login", CommandType.StoredProcedure, para);
+            return SqlHelper.ExecuteScalar(sql, CommandType.Text, para);
         }
 
         /// <summary>

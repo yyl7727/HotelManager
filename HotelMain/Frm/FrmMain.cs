@@ -82,7 +82,7 @@ namespace HotelMain.Frm
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = var.fjbh.ToString();
-                if (var.fjzt == "1")
+                /*if (var.fjzt == "1")
                 {
                     lvi.ImageIndex = 1;
                 }
@@ -90,9 +90,24 @@ namespace HotelMain.Frm
                 {
                     lvi.ImageIndex = 0;
                 }
-                else
+                else if()
                 {
                     lvi.ImageIndex = 2;
+                }*/
+                switch (var.fjzt)
+                {
+                    case "1":
+                        lvi.ImageIndex = 1;
+                        break;
+                    case "2":
+                        lvi.ImageIndex = 0;
+                        break;
+                    case "3":
+                        lvi.ImageIndex = 2;
+                        break;
+                    case "4":
+                        lvi.ImageIndex = 3;
+                        break;
                 }
                 this.lv_room.Items.Add(lvi);
             }
