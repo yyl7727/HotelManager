@@ -41,6 +41,26 @@ namespace HotelMain.Dal
             }
         }
 
+        /// <summary>
+        /// 预约登记
+        /// </summary>
+        /// <param name="guest"></param>
+        /// <returns></returns>
+        internal static int AddReserveRecord(RoomRecord guest)
+        {
+            string sql = "insert into roomrecord(lsh, lxdh, fjbh, rzzt) "
+                    + "values(@rzbh, @Phone, @RoomId, @ResideId);"
+                    + "update room set fjzt=@RoomStateId where fjbh=@RoomId";
+            MySqlParameter[] para = {
+                    new MySqlParameter("@rzbh", guest.lsh),
+                    new MySqlParameter("@Phone", guest.lxdh),
+                    new MySqlParameter("@RoomId", guest.fjbh),
+                    new MySqlParameter("@ResideId", guest.rzzt),
+                    new MySqlParameter("@RoomStateId", 4)
+                };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
+
         private static int AddGuest(string lsh, List<Guest> guests)
         {
             string sql = "";

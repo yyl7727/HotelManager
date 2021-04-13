@@ -72,7 +72,7 @@ namespace HotelMain.Frm
                 return;
             }
             RoomRecord record = new RoomRecord();
-            record.lsh = lshCreate.GetLsh();
+            record.lsh = LshCreate.GetLsh();
             record.lxdh = this.txt_lxdh.Text.Trim();
             record.rzyj = this.txt_rzyj.Text.Trim();
             record.fjbh = Bll_Room.GetFreeRoomIdWithFjlx(cb_rzfj.SelectedValue.ToString()).ToString();
@@ -84,7 +84,7 @@ namespace HotelMain.Frm
 
             try
             {
-                if (Bll_Guset.AddGuest(record) > 0)
+                if (Bll_Guset.AddCheckinRecord(record) > 0)
                 {
                     MessageBox.Show("入住办理成功!房间号："+ record.fjbh, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

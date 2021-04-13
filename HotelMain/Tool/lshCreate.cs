@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HotelMain.Tool
 {
-    public static class lshCreate
+    public static class LshCreate
     {
         public static string GetLsh()
         {

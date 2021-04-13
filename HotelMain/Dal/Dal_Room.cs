@@ -356,7 +356,8 @@ namespace HotelMain.Dal
         /// <returns></returns>
         public static List<FreeRoomNum> GetFreeRoom()
         {
-            MySqlDataReader reader = SqlHelper.ExecuteReader("GetFreeRoom", CommandType.Text, null);
+            string sql = "select t.fjlx lxbh,GetCodeMean('1001', t.fjlx) fjlx,COUNT(*)sl from room t where t.fjzt='2' GROUP BY lxbh";
+            MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, null);
             List<FreeRoomNum> freeroom = new List<FreeRoomNum>();
             while (reader.Read())
             {

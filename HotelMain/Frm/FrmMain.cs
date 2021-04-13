@@ -281,5 +281,22 @@ namespace HotelMain.Frm
                 FrmMain_Load(null, null);
             }
         }
+
+        private void tsbtn_gkcx_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 客房预约
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsp_reserve_Click(object sender, EventArgs e)
+        {
+            FrmReserve frmReserve = new FrmReserve();
+            frmReserve.ShowDialog();
+            FrmMain_Load(null, null);
+        }
     }
 }

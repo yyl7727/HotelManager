@@ -15,9 +15,19 @@ namespace HotelMain.Bll
         /// </summary>
         /// <param name="guest"></param>
         /// <returns></returns>
-        public static int AddGuest(RoomRecord guest)
+        public static int AddCheckinRecord(RoomRecord guest)
         {
             return Dal_Guest.AddCheckinRecord(guest);
+        }
+
+        /// <summary>
+        /// 预约登记
+        /// </summary>
+        /// <param name="guest"></param>
+        /// <returns></returns>
+        public static int AddReserveRecord(RoomRecord guest)
+        {
+            return Dal_Guest.AddReserveRecord(guest);
         }
 
         /// <summary>

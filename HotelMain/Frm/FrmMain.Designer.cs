@@ -36,6 +36,7 @@
             this.tsbtn_cywh = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_srtj = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_rzdj = new System.Windows.Forms.ToolStripButton();
+            this.tsp_reserve = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_gkcx = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_lock = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_exit = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +98,7 @@
             this.tsbtn_cywh,
             this.tsbtn_srtj,
             this.tsbtn_rzdj,
+            this.tsp_reserve,
             this.tsbtn_gkcx,
             this.tsbtn_lock,
             this.tsbtn_exit,
@@ -167,6 +169,18 @@
             this.tsbtn_rzdj.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbtn_rzdj.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
+            // tsp_reserve
+            // 
+            this.tsp_reserve.Image = ((System.Drawing.Image)(resources.GetObject("tsp_reserve.Image")));
+            this.tsp_reserve.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsp_reserve.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsp_reserve.Name = "tsp_reserve";
+            this.tsp_reserve.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.tsp_reserve.Size = new System.Drawing.Size(60, 99);
+            this.tsp_reserve.Text = "客房预约";
+            this.tsp_reserve.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsp_reserve.Click += new System.EventHandler(this.tsp_reserve_Click);
+            // 
             // tsbtn_gkcx
             // 
             this.tsbtn_gkcx.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_gkcx.Image")));
@@ -177,6 +191,7 @@
             this.tsbtn_gkcx.Size = new System.Drawing.Size(60, 99);
             this.tsbtn_gkcx.Text = "顾客查询";
             this.tsbtn_gkcx.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtn_gkcx.Click += new System.EventHandler(this.tsbtn_gkcx_Click);
             // 
             // tsbtn_lock
             // 
@@ -596,5 +611,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripTextBox1;
         private System.Windows.Forms.ToolStripLabel toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripButton tsp_reserve;
     }
 }
