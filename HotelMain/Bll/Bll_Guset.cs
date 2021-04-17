@@ -49,5 +49,15 @@ namespace HotelMain.Bll
         {
             return Dal_Guest.RoomCheckOut(roomid);
         }
+
+        /// <summary>
+        /// 根据手机号获取预约信息
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
+        public static RoomRecord GetReserveRecordByPhone(string phone)
+        {
+            return Dal_Guest.GetReserveRecordByPhone(phone);
+        }
     }
 }

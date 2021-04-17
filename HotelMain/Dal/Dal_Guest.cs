@@ -61,6 +61,12 @@ namespace HotelMain.Dal
             return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
         }
 
+        /// <summary>
+        /// 客户信息记录保存
+        /// </summary>
+        /// <param name="lsh"></param>
+        /// <param name="guests"></param>
+        /// <returns></returns>
         private static int AddGuest(string lsh, List<Guest> guests)
         {
             string sql = "";
@@ -112,6 +118,29 @@ namespace HotelMain.Dal
                 new MySqlParameter("@fjbh",roomid)
             };
             return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
+
+        /// <summary>
+        /// 根据手机号获取预约信息
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
+        public static RoomRecord GetReserveRecordByPhone(string phone)
+        {
+            RoomRecord roomRecord = new RoomRecord();
+            string sql = "select t.lsh, t.lxdh, t.fjbh, t.rzzt, t.rzrq, t.rzts, t.rzyj, t.qtxf, t.zjxf, t.ldrq from roomrecord t where t.lxdh = @phone";
+            MySqlParameter[] para = {
+                new MySqlParameter("@phone",phone)
+            };
+            MySqlDataReader dataReader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
+            if (dataReader.HasRows)
+            {
+                dataReader.Read();
+                roomRecord.lsh = dataReader["lsh"].ToString();
+                roomRecord.fjbh = dataReader["fjbh"].ToString();
+                roomRecord.lxdh = dataReader["lxdh"].ToString();
+            }
+            return roomRecord;
         }
     }
 }

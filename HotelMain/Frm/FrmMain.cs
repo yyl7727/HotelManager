@@ -82,18 +82,7 @@ namespace HotelMain.Frm
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = var.fjbh.ToString();
-                /*if (var.fjzt == "1")
-                {
-                    lvi.ImageIndex = 1;
-                }
-                else if (var.fjzt == "2")
-                {
-                    lvi.ImageIndex = 0;
-                }
-                else if()
-                {
-                    lvi.ImageIndex = 2;
-                }*/
+                
                 switch (var.fjzt)
                 {
                     case "1":
