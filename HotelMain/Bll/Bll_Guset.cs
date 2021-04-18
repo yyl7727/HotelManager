@@ -59,5 +59,33 @@ namespace HotelMain.Bll
         {
             return Dal_Guest.GetReserveRecordByPhone(phone);
         }
+
+        /// <summary>
+        /// 预约入住 更新原有预定信息更改为入住
+        /// </summary>
+        /// <param name="roomRecord"></param>
+        public static int UpdateReserveRecord(RoomRecord roomRecord)
+        {
+            return Dal_Guest.UpdateReserveRecord(roomRecord);
+        }
+
+        /// <summary>
+        /// 根据房间号获取对应预定信息
+        /// </summary>
+        /// <param name="fjbh"></param>
+        public static RoomRecord GetReserveRecordByFjbh(string fjbh)
+        {
+            return Dal_Guest.GetReserveRecordByFjbh(fjbh);
+        }
+
+        /// <summary>
+        /// 取消预约
+        /// </summary>
+        /// <param name="roomRecord"></param>
+        /// <returns></returns>
+        public static int CancelReserveRecord(RoomRecord roomRecord)
+        {
+            return Dal_Guest.CancelReserveRecord(roomRecord);
+        }
     }
 }

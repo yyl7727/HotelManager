@@ -46,7 +46,7 @@ namespace HotelMain.Dal
         /// </summary>
         /// <param name="guest"></param>
         /// <returns></returns>
-        internal static int AddReserveRecord(RoomRecord guest)
+        public static int AddReserveRecord(RoomRecord guest)
         {
             string sql = "insert into roomrecord(lsh, lxdh, fjbh, rzzt) "
                     + "values(@rzbh, @Phone, @RoomId, @ResideId);"
@@ -58,6 +58,68 @@ namespace HotelMain.Dal
                     new MySqlParameter("@ResideId", guest.rzzt),
                     new MySqlParameter("@RoomStateId", 4)
                 };
+            return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+        }
+
+        /// <summary>
+        /// 根据房间编号获取对应预约信息
+        /// </summary>
+        /// <param name="fjbh"></param>
+        public static RoomRecord GetReserveRecordByFjbh(string fjbh)
+        {
+            RoomRecord roomRecord = new RoomRecord();
+            string sql = "select lsh, lxdh, fjbh, rzzt from roomrecord where rzzt = 4 and fjbh = @fjbh";
+            MySqlParameter[] para = {
+                    new MySqlParameter("@fjbh", fjbh)
+                };
+            MySqlDataReader reader = SqlHelper.ExecuteReader(sql, CommandType.Text, para);
+            reader.Read();
+            roomRecord.lsh = reader["lsh"].ToString();
+            roomRecord.lxdh = reader["lxdh"].ToString();
+            roomRecord.fjbh = reader["fjbh"].ToString();
+            roomRecord.rzzt = reader["rzzt"].ToString();
+            return roomRecord;
+        }
+
+        /// <summary>
+        /// 预约入住
+        /// </summary>
+        /// <param name="roomRecord"></param>
+        public static int UpdateReserveRecord(RoomRecord roomRecord)
+        {
+            if (AddGuest(roomRecord.lsh, roomRecord.khxx) > 0)
+            {
+                string sql = "update roomrecord set rzzt = @rzzt, rzrq = @rzrq, rzts = @rzts, rzyj = @rzyj, ldrq = @ldrq where lsh = @lsh;"
+                    + "update room set fjzt=1 where fjbh=@fjbh";
+                MySqlParameter[] para = {
+                        new MySqlParameter("@rzzt", roomRecord.rzzt),
+                        new MySqlParameter("@rzrq", roomRecord.rzrq),
+                        new MySqlParameter("@rzts", roomRecord.rzts),
+                        new MySqlParameter("@rzyj", roomRecord.rzyj),
+                        new MySqlParameter("@ldrq", roomRecord.tfrq),
+                        new MySqlParameter("@lsh", roomRecord.lsh),
+                        new MySqlParameter("@fjbh", roomRecord.fjbh)
+                    };
+                return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 取消预约
+        /// </summary>
+        /// <param name="roomRecord"></param>
+        /// <returns></returns>
+        public static int CancelReserveRecord(RoomRecord roomRecord)
+        {
+            string sql = "update roomrecord set rzzt = 0 where lsh = @lsh;update room set fjzt=2 where fjbh=@fjbh";
+            MySqlParameter[] para = {
+                        new MySqlParameter("@lsh", roomRecord.lsh),
+                        new MySqlParameter("@fjbh", roomRecord.fjbh)
+                    };
             return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, para);
         }
 
@@ -128,7 +190,7 @@ namespace HotelMain.Dal
         public static RoomRecord GetReserveRecordByPhone(string phone)
         {
             RoomRecord roomRecord = new RoomRecord();
-            string sql = "select t.lsh, t.lxdh, t.fjbh, t.rzzt, t.rzrq, t.rzts, t.rzyj, t.qtxf, t.zjxf, t.ldrq from roomrecord t where t.lxdh = @phone";
+            string sql = "select t.lsh, t.lxdh, t.fjbh, t.rzzt, t.rzrq, t.rzts, t.rzyj, t.qtxf, t.zjxf, t.ldrq from roomrecord t where t.lxdh = @phone and t.rzzt = 4";
             MySqlParameter[] para = {
                 new MySqlParameter("@phone",phone)
             };

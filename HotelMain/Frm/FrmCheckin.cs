@@ -73,8 +73,8 @@ namespace HotelMain.Frm
             }
             RoomRecord record = new RoomRecord();
             record.lsh = LshCreate.GetLsh();
-            record.lxdh = this.txt_lxdh.Text.Trim();
-            record.rzyj = this.txt_rzyj.Text.Trim();
+            record.lxdh = txt_lxdh.Text.Trim();
+            record.rzyj = txt_rzyj.Text.Trim();
             record.fjbh = Bll_Room.GetFreeRoomIdWithFjlx(cb_rzfj.SelectedValue.ToString()).ToString();
             record.rzrq = this.dtp_rzsj.Value;
             record.rzts = this.txt_rzts.Text.Trim();
@@ -140,19 +140,17 @@ namespace HotelMain.Frm
         }
 
         /// <summary>
-        /// 新增客户信息
+        /// 弹出添加客户按钮前的初始化工作
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void InitTempGuestList(ListView listView)
         {
             List<Guest> guests = new List<Guest>();
 
             //考虑添加完客户后关闭添加窗口又再一次打开添加的情况
             //首先把listview中的数据读取保存，然后再清空添加
             ClearTempGuestList();
-            
-            foreach (ListViewItem li in listView1.Items)
+
+            foreach (ListViewItem li in listView.Items)
             {
                 Guest guest = new Guest();
                 guest.yhxm = li.SubItems[0].Text.Trim();
@@ -161,8 +159,17 @@ namespace HotelMain.Frm
                 guests.Add(guest);
             }
             TempGuest.guests = guests;
-            
-            
+        }
+
+        /// <summary>
+        /// 新增客户信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InitTempGuestList(listView1);
+
             FrmCustomerInfo customerInfo = new FrmCustomerInfo();
             customerInfo.ShowDialog();
             InitListViewData(listView1);
@@ -225,7 +232,7 @@ namespace HotelMain.Frm
         {
             if (string.IsNullOrEmpty(textBox3.Text))
             {
-                toolTip1.Show("联系电话不能为空!", this.textBox3, 1000);
+                toolTip1.Show("入住天数不能为空!", this.textBox3, 1000);
                 textBox3.Focus();
                 return;
             }
@@ -235,8 +242,70 @@ namespace HotelMain.Frm
                 listView2.Focus();
                 return;
             }
-            RoomRecord roomRecord = Bll_Guset.GetReserveRecordByPhone(textBox1.Text.Trim());
-            
+            RoomRecord roomRecord = Bll_Guset.GetReserveRecordByPhone(textBox4.Text.Trim());
+
+            roomRecord.rzyj = textBox2.Text.Trim();
+            roomRecord.rzrq = dateTimePicker1.Value;
+            roomRecord.rzts = textBox3.Text.Trim();
+            roomRecord.tfrq = roomRecord.rzrq.AddDays(Convert.ToInt32(roomRecord.rzts));
+            roomRecord.rzzt = "1";
+            roomRecord.khxx = TempGuest.guests;
+            try
+            {
+                if (Bll_Guset.UpdateReserveRecord(roomRecord) > 0)
+                {
+                    MessageBox.Show("入住办理成功!房间号：" + roomRecord.fjbh, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("数据库异常：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("其它异常：" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 预约入住的添加客户按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InitTempGuestList(listView2);
+
+            FrmCustomerInfo customerInfo = new FrmCustomerInfo();
+            customerInfo.ShowDialog();
+            InitListViewData(listView2);
+        }
+
+        /// <summary>
+        /// 预约入住的删除客户按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (listView2.SelectedItems.Count == 1)
+            {
+                //获取选中客户的姓名身份证号码
+                Guest guest = new Guest();
+                guest.yhxm = listView2.SelectedItems[0].SubItems[0].Text.Trim();
+                guest.sfzhm = listView2.SelectedItems[0].SubItems[2].Text.Trim();
+
+                //删除对应姓名和身份证号码的客户
+                for (int i = 0; i < TempGuest.guests.Count; i++)
+                {
+                    if (TempGuest.guests[i].sfzhm == guest.sfzhm && TempGuest.guests[i].yhxm == guest.yhxm)
+                    {
+                        TempGuest.guests.Remove(TempGuest.guests[i]);
+                    }
+                }
+
+                InitListViewData(listView2);
+            }
         }
     }
 }

@@ -211,7 +211,7 @@ namespace HotelMain.Frm
         /// <param name="e"></param>
         private void 退房ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (lv_room.SelectedItems.Count > 0 && lv_room.SelectedItems[0].ImageIndex == 1)
+            if (lv_room.SelectedItems.Count == 1 && lv_room.SelectedItems[0].ImageIndex == 1)
             {
                 Pass.fjbh = lv_room.SelectedItems[0].Text;
                 FrmCheckout frmcheckout = new FrmCheckout();
@@ -286,6 +286,45 @@ namespace HotelMain.Frm
             FrmReserve frmReserve = new FrmReserve();
             frmReserve.ShowDialog();
             FrmMain_Load(null, null);
+        }
+
+        /// <summary>
+        /// 双击房间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lv_room_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        /// <summary>
+        /// 取消预订
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 取消预订ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lv_room.SelectedItems.Count == 1 && lv_room.SelectedItems[0].ImageIndex == 3)
+            {
+                string fjbh = lv_room.SelectedItems[0].Text;
+
+                //根据房间编号获取对应房间的预约信息
+                RoomRecord roomRecord = Bll_Guset.GetReserveRecordByFjbh(fjbh);
+                //取消对应流水号的预定信息
+                if (Bll_Guset.CancelReserveRecord(roomRecord) > 0)
+                {
+                    FrmMain_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("取消预约失败");
+                }
+            }
+            else
+            {
+                MessageBox.Show("不满足取消预约条件！");
+            }
         }
     }
 }
