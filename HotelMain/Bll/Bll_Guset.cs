@@ -3,6 +3,7 @@ using HotelMain.Model;
 using HotelMain.Model.vo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -86,6 +87,11 @@ namespace HotelMain.Bll
         public static int CancelReserveRecord(RoomRecord roomRecord)
         {
             return Dal_Guest.CancelReserveRecord(roomRecord);
+        }
+
+        public static DataTable GetRecordDataTable(SearchInfoVo searchInfoVo)
+        {
+            return Dal_Guest.GetRecordDataTable(searchInfoVo);
         }
     }
 }

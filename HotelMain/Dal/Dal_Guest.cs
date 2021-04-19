@@ -204,5 +204,39 @@ namespace HotelMain.Dal
             }
             return roomRecord;
         }
+
+        public static DataTable GetRecordDataTable(SearchInfoVo searchInfoVo)
+        {
+            string sql = "select a.lsh, a.fjbh, a.lxdh, b.yhxm, b.sfzhm, a.rzrq, a.rzts, a.ldrq from roomrecord a LEFT JOIN guestrecord b on a.lsh = b.lsh where 1 = 1";
+            if (!string.IsNullOrEmpty(searchInfoVo.lsh))
+            {
+                sql += " and a.lsh = @lsh";
+            }
+            if (!string.IsNullOrEmpty(searchInfoVo.khxm))
+            {
+                sql += " and b.yhxm = @khxm";
+            }
+            if (!string.IsNullOrEmpty(searchInfoVo.sfzhm))
+            {
+                sql += " and b.sfzhm = @sfzhm";
+            }
+            if (!string.IsNullOrEmpty(searchInfoVo.fjbh))
+            {
+                sql += " and a.fjbh = @fjbh";
+            }
+            if (!string.IsNullOrEmpty(searchInfoVo.lxdh))
+            {
+                sql += " and a.lxdh = @lxdh";
+            }
+
+            MySqlParameter[] para = {
+                new MySqlParameter("@lsh",searchInfoVo.lsh),
+                new MySqlParameter("@fjbh",searchInfoVo.fjbh),
+                new MySqlParameter("@khxm",searchInfoVo.khxm),
+                new MySqlParameter("@sfzhm",searchInfoVo.sfzhm),
+                new MySqlParameter("@lxdh",searchInfoVo.lxdh)
+            };
+            return SqlHelper.GetDataSet(sql, CommandType.Text, para);
+        }
     }
 }

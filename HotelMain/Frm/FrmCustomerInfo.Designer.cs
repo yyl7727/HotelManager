@@ -81,6 +81,7 @@
             // 
             // cb_sex
             // 
+            this.cb_sex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_sex.FormattingEnabled = true;
             this.cb_sex.Items.AddRange(new object[] {
             "男",

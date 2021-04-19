@@ -96,11 +96,8 @@ namespace HotelMain.Tool
             MySqlCommand cmd = new MySqlCommand();
             //创建一个MySqlConnection对象
             MySqlConnection conn = new MySqlConnection(connectionString);
-
-
+            
             //在这里我们用一个try/catch结构执行sql文本命令/存储过程，因为如果这个方法产生一个异常我们要关闭连接，因为没有读取器存在，
-
-
             try
             {
                 //调用 PrepareCommand 方法，对 MySqlCommand 对象设置参数

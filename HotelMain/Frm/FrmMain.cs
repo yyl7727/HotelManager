@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using CCWin;
 using HotelMain.Tool;
@@ -30,7 +25,6 @@ namespace HotelMain.Frm
             #region 暂未启用的功能做隐藏显示
             tsbtn_cywh.Visible = false;
             tsbtn_srtj.Visible = false;
-            tsbtn_gkcx.Visible = false;
             #endregion
 
             timer1.Start();
@@ -273,7 +267,8 @@ namespace HotelMain.Frm
 
         private void tsbtn_gkcx_Click(object sender, EventArgs e)
         {
-
+            FrmSearch frmSearch = new FrmSearch();
+            frmSearch.ShowDialog();
         }
 
         /// <summary>
